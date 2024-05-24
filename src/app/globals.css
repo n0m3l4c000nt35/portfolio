@@ -4,7 +4,11 @@
 
 @layer base {
   body {
-    @apply p-2
+    @apply p-2;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
   }
 
   h1 {

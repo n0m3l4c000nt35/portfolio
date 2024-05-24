@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function NavLink({
@@ -7,9 +10,13 @@ export default function NavLink({
   href: string;
   title: string;
 }) {
+  const pathname = usePathname();
+
   return (
     <Link
-      className="mx-2 px-3 py-1 rounded-lg border hover:border-slate-300"
+      className={`mx-2 px-3 py-1 rounded-lg border hover:border-slate-300 ${
+        pathname === href ? "border-slate-400" : ""
+      }`}
       href={`${href}`}
     >
       {title}

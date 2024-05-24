@@ -1,6 +1,4 @@
-import Link from "next/link";
 import NavLink from "./nav-link";
-import { log } from "console";
 
 const links = [
   { id: 1, href: "/", title: "Home" },
