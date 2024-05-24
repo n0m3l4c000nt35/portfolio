@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply p-2;
+    @apply pt-10;
   }
 
   body::-webkit-scrollbar {
@@ -17,5 +17,5 @@
 }
 
 .page-title {
-  @apply mt-10 text-3xl text-center uppercase;
+  @apply mt-8 text-3xl text-center uppercase;
 }

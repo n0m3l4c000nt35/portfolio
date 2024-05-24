@@ -10,7 +10,7 @@ const links = [
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-center">
+    <nav className="fixed top-0 w-full flex justify-center bg-white p-2">
       {links.map(({ id, href, title }) => (
         <NavLink key={id} href={href} title={title} />
       ))}

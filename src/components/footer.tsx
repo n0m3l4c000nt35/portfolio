@@ -43,7 +43,7 @@ const links: FooterLink[] = [
 
 export default function Footer() {
   return (
-    <footer className="flex justify-center">
+    <footer className="fixed bottom-0 w-full bg-white p-2 flex justify-center">
       {links.map(({ id, icon, href, title }) => (
         <a
           className="mx-1 text-4xl hover:text-gray-600"
