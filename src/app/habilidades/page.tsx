@@ -9,7 +9,7 @@ import {
   FaPython,
 } from "react-icons/fa6";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiMongodb } from "react-icons/si";
+import { SiMongodb, SiGnubash } from "react-icons/si";
 
 type Skill = {
   id: number;
@@ -21,48 +21,53 @@ const links: Skill[] = [
   {
     id: 1,
     title: "HTML",
-    icon: <FaHtml5 className="size-20" />,
+    icon: <FaHtml5 className="size-16" />,
   },
   {
     id: 2,
     title: "CSS",
-    icon: <FaCss3Alt className="size-20" />,
+    icon: <FaCss3Alt className="size-16" />,
   },
   {
     id: 3,
     title: "JS",
-    icon: <IoLogoJavascript className="size-20" />,
+    icon: <IoLogoJavascript className="size-16" />,
   },
   {
     id: 4,
     title: "REACT",
-    icon: <FaReact className="size-20" />,
+    icon: <FaReact className="size-16" />,
   },
   {
     id: 5,
     title: "NODE",
-    icon: <FaNodeJs className="size-20" />,
+    icon: <FaNodeJs className="size-16" />,
   },
   {
     id: 6,
     title: "MONGO",
-    icon: <SiMongodb className="size-20" />,
+    icon: <SiMongodb className="size-16" />,
   },
   {
     id: 7,
     title: "LINUX",
-    icon: <FaLinux className="size-20" />,
+    icon: <FaLinux className="size-16" />,
   },
   {
     id: 8,
     title: "PYTHON",
-    icon: <FaPython className="size-20" />,
+    icon: <FaPython className="size-16" />,
+  },
+  {
+    id: 9,
+    title: "BASH",
+    icon: <SiGnubash className="size-16" />,
   },
 ];
 
 export default function Skills() {
   return (
-    <section className="pt-20 grid grid-cols-4 gap-4">
+    <section className="max-w-3xl mx-auto py-10 grid grid-cols-auto-fit gap-4">
       {links.map(({ id, title, icon }) => (
         <div
           key={id}

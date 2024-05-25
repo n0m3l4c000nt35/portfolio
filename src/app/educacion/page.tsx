@@ -106,12 +106,12 @@ const studies: Study[] = [
 
 export default function Education() {
   return (
-    <>
-      <ul className="text-center">
+    <section className="max-w-3xl mx-auto">
+      <ul className="max-w-lg mx-auto	text-center">
         {studies.map(
           ({ id, title, school, description, certificates, details }) => (
             <li key={id} className="mb-4 pb-2">
-              <h2 className="pt-1 px-3 pb-1 text-xl bg-gray-900 text-gray-300">
+              <h2 className="pt-1 px-3 pb-1 text-lg bg-gray-900 text-gray-300">
                 {title}
               </h2>
               <div className="border-x-transparent border-b-transparent border-[1px] px-3 pb-3 hover:border-x-gray-900 hover:border-b-gray-900">
@@ -134,7 +134,7 @@ export default function Education() {
                     <ul className="text-left">
                       {certificates?.map(({ id, title, url }) => (
                         <li key={id}>
-                          <a className="text-sm" href={url}>
+                          <a className="text-sm" href={url} target="_blank">
                             {title}
                           </a>
                         </li>
@@ -157,6 +157,6 @@ export default function Education() {
           )
         )}
       </ul>
-    </>
+    </section>
   );
 }
