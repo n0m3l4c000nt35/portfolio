@@ -19,3 +19,8 @@
 .page-title {
   @apply mt-8 text-3xl text-center uppercase;
 }
+
+.text-up {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}

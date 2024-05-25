@@ -1,11 +1,12 @@
 import NavLink from "./nav-link";
 
 const links = [
-  { id: 1, href: "/", title: "Home" },
+  { id: 1, href: "/", title: "Inicio" },
   { id: 2, href: "/educacion", title: "Educación" },
-  { id: 3, href: "/proyectos", title: "Proyectos" },
-  { id: 4, href: "/experiencia", title: "Experiencia" },
-  { id: 5, href: "/contacto", title: "Contacto" },
+  { id: 3, href: "/habilidades", title: "Habilidades" },
+  { id: 4, href: "/proyectos", title: "Proyectos" },
+  { id: 5, href: "/experiencia", title: "Experiencia" },
+  { id: 6, href: "/contacto", title: "Contacto" },
 ];
 
 export default function Navbar() {

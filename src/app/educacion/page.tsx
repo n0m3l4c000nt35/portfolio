@@ -107,19 +107,15 @@ const studies: Study[] = [
 export default function Education() {
   return (
     <>
-      {/* <h1 className="page-title">Educación</h1> */}
       <ul className="text-center">
         {studies.map(
           ({ id, title, school, description, certificates, details }) => (
-            <li
-              key={id}
-              className="mb-4 border-transparent border-[1px] pb-2 hover:border-[1px] hover:border-gray-900"
-            >
+            <li key={id} className="mb-4 pb-2">
               <h2 className="pt-1 px-3 pb-1 text-xl bg-gray-900 text-gray-300">
                 {title}
               </h2>
-              <div className="px-3">
-                <h3 className="my-1 text-left text-[12px] font-bold uppercase">
+              <div className="border-x-transparent border-b-transparent border-[1px] px-3 pb-3 hover:border-x-gray-900 hover:border-b-gray-900">
+                <h3 className="my-1 text-left text-[14px] font-bold uppercase">
                   {school}
                 </h3>
                 <ul>
