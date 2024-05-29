@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ReactElement } from "react";
 import {
   FaLinkedin,
@@ -43,10 +42,10 @@ const links: FooterLink[] = [
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 w-full bg-white p-2 flex justify-center">
+    <footer className="fixed bottom-2 left-1/2 transform -translate-x-1/2 backdrop-blur p-2 flex justify-center rounded-lg nav-shadow">
       {links.map(({ id, icon, href, title }) => (
         <a
-          className="mx-1 text-4xl hover:text-gray-600"
+          className="mx-1 text-4xl  flex justify-center items-center text-lime-600 hover:text-lime-700"
           key={id}
           href={href}
           target="_blank"

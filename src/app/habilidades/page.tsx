@@ -73,7 +73,7 @@ export default function Skills() {
           key={id}
           className="flex flex-row border-[1px] border-gray-900 rounded-md"
         >
-          <h2 className="cursor-pointer rounded-l-md border-r-[1px] border-gray-900 p-2 bg-gray-900 text-gray-300 text-sm text-up text-center -tracking-[2px] hover:text-gray-900 hover:bg-gray-50 hover:border-r-[1px] hover:border-gray-900">
+          <h2 className="cursor-pointer rounded-l-md border-r-[1px] border-gray-900 p-2 bg-gray-900 text-gray-300 text-sm font-extrabold text-up text-center -tracking-[2px] hover:text-gray-900 hover:bg-gray-50 hover:border-r-[1px] hover:border-gray-900">
             {title}
           </h2>
           <div className="flex grow justify-center	items-center p-4">{icon}</div>

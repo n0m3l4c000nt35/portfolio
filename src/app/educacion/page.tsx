@@ -111,7 +111,7 @@ export default function Education() {
         {studies.map(
           ({ id, title, school, description, certificates, details }) => (
             <li key={id} className="mb-4 pb-2">
-              <h2 className="pt-1 px-3 pb-1 text-lg bg-gray-900 text-gray-300">
+              <h2 className="pt-1 px-3 pb-1 text-lg bg-gray-900 text-gray-300 font-bold tracking-widest">
                 {title}
               </h2>
               <div className="border-x-transparent border-b-transparent border-[1px] px-3 pb-3 hover:border-x-gray-900 hover:border-b-gray-900">
@@ -134,7 +134,11 @@ export default function Education() {
                     <ul className="text-left">
                       {certificates?.map(({ id, title, url }) => (
                         <li key={id}>
-                          <a className="text-sm" href={url} target="_blank">
+                          <a
+                            className="text-sm hover:text-gray-500"
+                            href={url}
+                            target="_blank"
+                          >
                             {title}
                           </a>
                         </li>
@@ -146,7 +150,7 @@ export default function Education() {
                   <a
                     href={details}
                     target="_blank"
-                    className="mx-auto border rounded-lg my-1 px-2 py-1 bg-slate-800 text-neutral-200 hover:bg-slate-700 text-sm"
+                    className="mx-auto border rounded-lg my-1 px-2 py-1 bg-gray-800 text-gray-200 hover:bg-slate-700 text-sm hover:bg-transparent hover:text-gray-800 hover:border-gray-400"
                     title="Ver detalles del estudio"
                   >
                     Detalles

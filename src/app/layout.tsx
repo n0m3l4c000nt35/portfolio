@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Neucha } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/nav";
 import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const neucha = Neucha({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Esteban Zárate",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${neucha.className} flex flex-col`}>
         <Navbar />
         <main className="w-full my-10 mx-auto px-1 flex-grow">{children}</main>
         <Footer />
