@@ -14,7 +14,7 @@ export default function NavLink({
 
   return (
     <Link
-      className={`mx-2 px-3 py-1 text-lime-600 tracking-wider font-bold	${
+      className={`mx-2 px-3 py-1 text-lime-600 tracking-wider font-bold hover:text-lime-700	${
         pathname === href ? "nav-shadow rounded-lg" : ""
       }`}
       href={`${href}`}

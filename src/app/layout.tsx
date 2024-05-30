@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${neucha.className} flex flex-col`}>
         <Navbar />
-        <main className="w-full my-10 mx-auto px-1 flex-grow">{children}</main>
+        <main className="w-full mt-10 mb-12 mx-auto px-1 flex-grow">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

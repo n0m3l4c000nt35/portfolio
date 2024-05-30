@@ -12,10 +12,15 @@ const links = [
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-2 left-1/2 transform -translate-x-1/2 backdrop-blur flex justify-center p-2 rounded-lg nav-shadow">
-      {links.map(({ id, href, title }) => (
-        <NavLink key={id} href={href} title={title} />
-      ))}
+    <nav className="fixed top-2 left-1/2 transform -translate-x-1/2 backdrop-blur flex justify-center items-center p-2 rounded-lg nav-shadow">
+      {links.map(({ id, href, title }, index) => {
+        return (
+          <>
+            <NavLink key={id} href={href} title={title} />
+            {index < 6 && <b className="font-extrabold">|</b>}
+          </>
+        );
+      })}
     </nav>
   );
 }
