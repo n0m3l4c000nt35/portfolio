@@ -7,7 +7,7 @@ const links = [
   { id: 4, href: "/proyectos", title: "Proyectos" },
   { id: 5, href: "/experiencia", title: "Experiencia" },
   { id: 6, href: "/contacto", title: "Contacto" },
-  { id: 7, href: "/blog", title: "Blog" },
+  { id: 7, href: "https://n0m3l4c000nt35.vercel.app/", title: "Blog" },
 ];
 
 export default function Navbar() {
