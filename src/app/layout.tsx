@@ -18,8 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${neucha.className} flex flex-col`}>
-        <Navbar />
+      <body
+        className={`${neucha.className} flex flex-col pt-2 md:pt-0 px-2 md:px-0`}
+      >
+        <header>
+          <Navbar />
+        </header>
         <main className="w-full mt-10 mb-12 mx-auto px-1 flex-grow">
           {children}
         </main>
