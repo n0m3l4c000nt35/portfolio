@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Neucha } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/nav";
+import "../globals.css";
+import Navbar from "@/components/Nav/Nav";
 import Footer from "@/components/footer";
 
 const neucha = Neucha({ subsets: ["latin"], weight: ["400"] });
@@ -18,8 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${neucha.className} flex flex-col`}>
-        <Navbar />
+      <body className={`${neucha.className} flex flex-col pt-20`}>
+        <header className="fixed top-8 w-full flex justify-center items-center">
+          <Navbar />
+        </header>
         <main className="w-full mt-10 mb-12 mx-auto px-1 flex-grow">
           {children}
         </main>

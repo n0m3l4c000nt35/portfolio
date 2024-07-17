@@ -13,7 +13,7 @@ export default function Contact() {
             type="text"
             id="name"
             name="name"
-            className="w-full border-[1px] border-lime-500 p-2 focus:outline-none"
+            className="w-full border-[1px] bg-transparent border-lime-500 p-2 focus:outline-none"
           />
         </div>
         <div className="mb-2">
@@ -24,7 +24,7 @@ export default function Contact() {
             type="email"
             id="email"
             name="email"
-            className="w-full border-[1px] border-lime-500 p-2 focus:outline-none"
+            className="w-full border-[1px] bg-transparent border-lime-500 p-2 focus:outline-none"
           />
         </div>
         <label htmlFor="message" className="block font-semibold">
@@ -33,7 +33,7 @@ export default function Contact() {
         <textarea
           name="message"
           id="message"
-          className="w-full resize-none	border-[1px] border-lime-500 p-2 focus:outline-none"
+          className="w-full resize-none	border-[1px] bg-transparent border-lime-500 p-2 focus:outline-none"
         ></textarea>
         <button
           type="submit"
