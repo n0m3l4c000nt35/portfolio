@@ -44,9 +44,16 @@ export default function Navbar() {
   useEffect(() => {
     if (list.current) {
       const listItems = list.current.querySelectorAll("li");
-      listItems.forEach(li => {
+      listItems.forEach((li, index) => {
         li.addEventListener("mousemove", moveIndicator);
         li.addEventListener("mouseover", activeLink);
+        if (index === 0) {
+          li.classList.add("active");
+          if (marker.current) {
+            marker.current.style.left = `${li.offsetLeft}px`;
+            marker.current.style.width = `${li.offsetWidth}px`;
+          }
+        }
       });
     }
   }, []);
