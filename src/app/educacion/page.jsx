@@ -1,21 +1,21 @@
 import Image from "next/image";
 
-type Certificate = {
-  id: number;
-  title: string;
-  url: string;
-};
+// type Certificate = {
+//   id: number,
+//   title: string,
+//   url: string,
+// };
 
-type Study = {
-  id: number;
-  title: string;
-  school: string;
-  description: string[];
-  certificates: Certificate[];
-  details: string;
-};
+// type Study = {
+//   id: number,
+//   title: string,
+//   school: string,
+//   description: string[],
+//   certificates: Certificate[],
+//   details: string,
+// };
 
-const studies: Study[] = [
+const studies = [
   {
     id: 1,
     title: "Licenciatura en Tecnologías de la Información",
@@ -104,7 +104,8 @@ const studies: Study[] = [
   },
 ];
 
-export default function Education() {
+export default function Education({ params }) {
+  console.log(params);
   return (
     <section className="max-w-3xl mx-auto">
       <ul className="max-w-lg mx-auto	text-center">

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   HomeOutline,
   SchoolOutline,
@@ -24,39 +25,57 @@ const links = [
 export default function Navbar() {
   let marker = useRef<HTMLDivElement>(null);
   let list = useRef<HTMLUListElement>(null);
+  const pathname = usePathname();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const moveIndicator = (e: MouseEvent) => {
-    const target = e.currentTarget as HTMLElement;
+  const moveIndicator = (target: HTMLElement) => {
     if (marker.current) {
       marker.current.style.left = `${target.offsetLeft}px`;
       marker.current.style.width = `${target.offsetWidth}px`;
     }
   };
 
-  const activeLink = (e: MouseEvent) => {
-    if (list.current) {
-      const listItems = list.current.querySelectorAll("li");
-      listItems.forEach(li => li.classList.remove("active"));
-      (e.currentTarget as HTMLElement).classList.add("active");
-    }
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
   };
 
   useEffect(() => {
     if (list.current) {
       const listItems = list.current.querySelectorAll("li");
       listItems.forEach((li, index) => {
-        li.addEventListener("mousemove", moveIndicator);
-        li.addEventListener("mouseover", activeLink);
-        if (index === 0) {
+        li.addEventListener("mouseenter", () => handleMouseEnter(index));
+        li.addEventListener("mouseleave", handleMouseLeave);
+      });
+
+      return () => {
+        listItems.forEach((li, index) => {
+          li.removeEventListener("mouseenter", () => handleMouseEnter(index));
+          li.removeEventListener("mouseleave", handleMouseLeave);
+        });
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (list.current) {
+      const listItems = list.current.querySelectorAll("li");
+      const currentIndex = links.findIndex(link => link.href === pathname);
+      const targetIndex = hoveredIndex !== null ? hoveredIndex : currentIndex;
+
+      listItems.forEach((li, index) => {
+        if (index === targetIndex) {
           li.classList.add("active");
-          if (marker.current) {
-            marker.current.style.left = `${li.offsetLeft}px`;
-            marker.current.style.width = `${li.offsetWidth}px`;
-          }
+          moveIndicator(li);
+        } else {
+          li.classList.remove("active");
         }
       });
     }
-  }, []);
+  }, [hoveredIndex, pathname]);
 
   return (
     <ul className="ul-nav-component" ref={list}>
