@@ -18,13 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${neucha.className} flex flex-col pt-20 md:pt-0 px-2 md:px-0`}
-      >
-        <header>
-          <header className="fixed top-8 w-full flex justify-center items-center">
-            <Navbar />
-          </header>
+      <body className={`${neucha.className} flex flex-col pt-20 px-2`}>
+        <header className="fixed top-8 w-full flex justify-center items-center">
+          <Navbar />
         </header>
         <main className="w-full mt-10 mb-12 mx-auto px-1 flex-grow">
           {children}
