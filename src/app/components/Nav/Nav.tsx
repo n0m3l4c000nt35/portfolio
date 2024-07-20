@@ -3,24 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import {
-  HomeOutline,
-  SchoolOutline,
-  BuildOutline,
-  BriefcaseOutline,
-  DocumentTextOutline,
-  ChatbubbleOutline,
-} from "react-ionicons";
-
-const links = [
-  { id: 1, href: "/", title: "Inicio" },
-  { id: 2, href: "/educacion", title: "Educación" },
-  { id: 3, href: "/habilidades", title: "Habilidades" },
-  { id: 4, href: "/proyectos", title: "Proyectos" },
-  { id: 5, href: "/experiencia", title: "Experiencia" },
-  { id: 6, href: "/contacto", title: "Contacto" },
-  { id: 7, href: "https://n0m3l4c000nt35.vercel.app/", title: "Blog" },
-];
+import { navbarLinks } from "../../lib/utils";
 
 export default function Navbar() {
   let marker = useRef<HTMLDivElement>(null);
@@ -63,7 +46,9 @@ export default function Navbar() {
   useEffect(() => {
     if (list.current) {
       const listItems = list.current.querySelectorAll("li");
-      const currentIndex = links.findIndex(link => link.href === pathname);
+      const currentIndex = navbarLinks.findIndex(
+        link => link.href === pathname
+      );
       const targetIndex = hoveredIndex !== null ? hoveredIndex : currentIndex;
 
       listItems.forEach((li, index) => {
@@ -78,38 +63,17 @@ export default function Navbar() {
   }, [hoveredIndex, pathname]);
 
   return (
-    <ul className="ul-nav-component" ref={list}>
-      <li className="li-nav-component">
-        <Link className="a-nav-component" href="/">
-          <HomeOutline cssClasses="ion-icon-nav-component" />
-        </Link>
-      </li>
-      <li className="li-nav-component">
-        <Link className="a-nav-component" href="/educacion">
-          <SchoolOutline cssClasses="ion-icon-nav-component" />
-        </Link>
-      </li>
-      <li className="li-nav-component">
-        <Link className="a-nav-component" href="/habilidades">
-          <BuildOutline cssClasses="ion-icon-nav-component" />
-        </Link>
-      </li>
-      <li className="li-nav-component">
-        <Link className="a-nav-component" href="/proyectos">
-          <BriefcaseOutline cssClasses="ion-icon-nav-component" />
-        </Link>
-      </li>
-      <li className="li-nav-component">
-        <Link className="a-nav-component" href="/experiencia">
-          <DocumentTextOutline cssClasses="ion-icon-nav-component" />
-        </Link>
-      </li>
-      <li className="li-nav-component">
-        <Link className="a-nav-component" href="/contacto">
-          <ChatbubbleOutline cssClasses="ion-icon-nav-component" />
-        </Link>
-      </li>
-      <div className="marker-nav-component" ref={marker}></div>
-    </ul>
+    <header className="main-header">
+      <ul className="ul-nav-component" ref={list}>
+        {navbarLinks.map(({ id, icon, href }) => (
+          <li key={id} className="li-nav-component">
+            <Link className="a-nav-component" href={href}>
+              {icon}
+            </Link>
+          </li>
+        ))}
+        <div className="marker-nav-component" ref={marker}></div>
+      </ul>
+    </header>
   );
 }

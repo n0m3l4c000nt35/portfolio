@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Neucha } from "next/font/google";
 import "../globals.css";
@@ -5,10 +7,11 @@ import Navbar from "@/app/components/Nav/Nav";
 import Footer from "@/app/components/footer";
 import Loading from "@/app/loading";
 import { Suspense } from "react";
+import { useBodyStyle } from "./hooks/useBodyStyle";
 
 const neucha = Neucha({ subsets: ["latin"], weight: ["400"] });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Esteban Zárate",
   description: "Portfolio de Esteban Zárate",
 };
@@ -18,16 +21,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useBodyStyle();
+
   return (
     <html lang="en">
-      <body className={`${neucha.className} flex flex-col pt-20 px-2`}>
+      <body className={`${neucha.className}`}>
         <Suspense fallback={<Loading />}>
-          <header className="fixed top-8 w-full flex justify-center items-center">
-            <Navbar />
-          </header>
-          <main className="w-full mt-10 mb-12 mx-auto px-1 flex-grow">
-            {children}
-          </main>
+          <Navbar />
+          <main className="content">{children}</main>
           <Footer />
         </Suspense>
       </body>
