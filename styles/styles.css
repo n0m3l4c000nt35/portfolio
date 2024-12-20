@@ -293,6 +293,8 @@ main {
     .schools {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
+      margin-top: 5rem;
+      margin-bottom: 5rem;
 
       .school {
         overflow: hidden;
@@ -389,6 +391,8 @@ main {
 
   .projects-container {
     max-width: 980px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     margin-inline: auto;
 
     .accent-char {
@@ -515,6 +519,8 @@ main {
 
   form {
     max-width: 520px;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
     margin-inline: auto;
 
     @media screen and (min-width: 768px) {
@@ -544,7 +550,7 @@ main {
         font-size: 1rem;
 
         &[type="text"]:valid {
-          border: 1px inset var(--neonColor);
+          border: 2px inset var(--neonColor);
         }
 
         &:focus {
@@ -552,7 +558,7 @@ main {
         }
 
         &[type="email"]:valid {
-          border: 1px inset var(--neonColor);
+          border: 2px inset var(--neonColor);
         }
       }
 
@@ -568,7 +574,7 @@ main {
         resize: none;
 
         &:valid {
-          border: 1px inset var(--neonColor);
+          border: 2px inset var(--neonColor);
         }
 
         &:focus {
@@ -608,7 +614,7 @@ main {
 
 .footer {
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
 
   .social-media {
     display: flex;
@@ -654,7 +660,7 @@ main {
     display: block;
     width: fit-content;
     margin-inline: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     position: relative;
 
     &::after {
