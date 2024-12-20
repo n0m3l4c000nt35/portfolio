@@ -136,6 +136,38 @@ form.addEventListener("submit", async e => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const sections = {
+    "#home": "Home",
+    "#about": "Acerca de",
+    "#projects": "Proyectos",
+    "#contact": "Contacto",
+  };
+
+  updateTitle(location.hash || "#home");
+
+  window.addEventListener("scroll", () => {
+    const sectionInView = Object.keys(sections).find(hash => {
+      const section = document.querySelector(hash);
+      if (!section) return false;
+
+      const rect = section.getBoundingClientRect();
+      return rect.home <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+    });
+
+    if (sectionInView) {
+      updateTitle(sectionInView);
+    }
+  });
+
+  function updateTitle(hash) {
+    const sectionTitle = sections[hash] || "Home";
+    document.title = `Esteban Zárate [ ${sectionTitle} ]`;
+  }
+
+  window.addEventListener("hashchange", () => {
+    updateTitle(location.hash || "#home");
+  });
+
   fixHeader();
   showPlaces();
   cursor();
