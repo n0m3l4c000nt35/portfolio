@@ -615,7 +615,7 @@ main {
     justify-content: center;
     column-gap: 1rem;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     a {
       display: flex;
@@ -647,6 +647,38 @@ main {
           opacity: 1;
         }
       }
+    }
+  }
+
+  .htb-link {
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -0.25rem;
+      left: -0.25rem;
+      right: -0.25rem;
+      bottom: -0.25rem;
+      border: 2px inset var(--neonColor);
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    img {
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin-inline: auto;
     }
   }
 
