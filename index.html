@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Esteban Zárate">
+  <meta name="description" content="Portfolio de Esteban Zárate">
+  <meta name="keywords"
+    content="Esteban Zárate, Portfolio, Desarrollador Web, Programador, Diseñador Web, Ciberseguridad, Ethical Hacking">
+  <title>Esteban Zárate | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+
+<body id="top">
+  <div id="cursor">&gt;</div>
+  <header class="header">
+    <b class="logo"><span>[</span>&nbsp;E<span class="hash">#</span>Z&nbsp;<span>]</span></b>
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="#top">inicio</a>
+        </li>
+        <li>
+          <a href="#about">acerca de</a>
+        </li>
+        <li>
+          <a href="#projects">proyectos</a>
+        </li>
+        <li>
+          <a href="#contact">contacto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main id="about">
+    <section class="about">
+      <div class="title">
+        <h2>acerca de mi</h2>
+        <a href="#top">
+          <i class="fa-solid fa-arrow-turn-up"></i>
+        </a>
+      </div>
+      <div class="about-content-container">
+        <div class="about-content">Apasi❤️nado por el desarrollo y la ciberseguridad, los que me permiten satisfacer el
+          constante deseo de
+          aprendizaje,
+          continuar desarrollando una mentalidad creativa y resolutiva, aspectos que destaco de mi persona y disfruto
+          seguir
+          perfeccionando<span>xxx</span>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="education">
+      <div class="title">
+        <h2>educación</h2>
+        <a href="#top">
+          <i class="fa-solid fa-arrow-turn-up"></i>
+        </a>
+      </div>
+      <div class="schools">
+        <article class="school">
+          <h3 class="place">BYU - Idaho</h3>
+          <div class="degree">
+            <i>Licenciatura en Desarrollo de Software</i>
+            <p class="time">
+              <time datetime="2023-03">Marzo 2023</time> - Presente
+            </p>
+            <ul>
+              <li>Python</li>
+              <li>HTML, CSS, JavaScript</li>
+              <li>C#</li>
+            </ul>
+          </div>
+        </article>
+        <article class="school">
+          <h3 class="place">Coderhouse</h3>
+          <div class="degree">
+            <i>Desarrollo Full Stack</i>
+            <p class="time">
+              <time datetime="2021-09">Septiembre 2021</time> - <time datetime="2022-07">Diciembre 2022</time>
+            </p>
+            <ul>
+              <li><b>Desarrollo web</b>:
+                <ul>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Sass</li>
+                  <li>Bootstrap</li>
+                </ul>
+              </li>
+              <li>JavaScript</li>
+              <li>React JS</li>
+              <li><b>Backend</b>:
+                MERN
+                <ul>
+                  <li>MongoDB</li>
+                  <li>Express.js</li>
+                  <li>React.js</li>
+                  <li>Node.js</li>
+                </ul>
+              </li>
+              <li>React Native</li>
+              <li>Python - Django</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <section id="projects" class="projects">
+    <div class="title">
+      <h2>proyectos</h2>
+      <a href="#top">
+        <i class="fa-solid fa-arrow-turn-up"></i>
+      </a>
+    </div>
+    <div class="projects-container">
+      <article>
+        <h2>Notes App</h2>
+        <p>Aplicación de notas desarrollada con Next.js <b class="accent-char">[</b>15<b class="accent-char">]</b></p>
+        <div class="deploy-container">
+          <div>
+            <img src="images/notesapp.webp" alt="Notes App" width="1919" height="1079" loading="lazy">
+          </div>
+          <a class="deploy-link" href="https://n0t354pp.vercel.app/" target="_blank">d3PlØY
+            <div class="deploy-link-border"></div>
+            <div class="deploy-link-border"></div>
+            <div class="deploy-link-border"></div>
+            <div class="deploy-link-border"></div>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section id="contact" class="contact">
+    <div class="title">
+      <h2>contacto</h2>
+      <a href="#top">
+        <i class="fa-solid fa-arrow-turn-up"></i>
+      </a>
+    </div>
+    <form action="https://formspree.io/f/meoqyavv" method="POST">
+      <div class="first-row-inputs">
+        <label for="name">Nombre
+          <input type="text" name="name" id="name" minlength="1" maxlength="30" pattern="^[a-zA-Z]+(?:[\s][a-zA-Z]+)*$"
+            placeholder="Juan Carlos Nombre" required>
+        </label>
+        <label for="email">Email
+          <input type="email" name="email" id="email" pattern="^[a-z0-9._\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            placeholder="Juan Carlos Email.." required>
+        </label>
+      </div>
+      <label for="message">Mensaje
+        <textarea name="message" id="message" rows="10" minlength="10" maxlength="500"
+          placeholder="Juan Carlos mensaje.." required></textarea>
+      </label>
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+  </section>
+  <footer class="footer">
+    <div class="social-media">
+      <a href="https://www.linkedin.com/in/esteban-zarate/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/n0m3l4c000nt35" target="_blank">
+        <i class="fa-brands fa-square-github"></i>
+      </a>
+    </div>
+    <p><b>&copy;</b> 2024 <a href="https://github.com/n0m3l4c000nt35" target="_blank">n0m3l4c000nt35</a></p>
+  </footer>
+  <script src="https://kit.fontawesome.com/f5d541a1f6.js" crossorigin="anonymous"></script>
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>
