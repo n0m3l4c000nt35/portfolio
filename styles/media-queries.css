@@ -39,6 +39,14 @@
     row-gap: 1rem;
     margin-bottom: unset;
   }
+
+  .social-media__link:hover .social-media__icon {
+    color: var(--hoverColor);
+  }
+
+  .social-media__link:hover .social-media__text {
+    color: var(--fontLightColor);
+  }
 }
 
 @media (min-width: 48em) {
