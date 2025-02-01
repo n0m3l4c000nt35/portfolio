@@ -1,0 +1,75 @@
+@import url("./styles.css");
+
+@media (min-width: 25em) {
+  .section__text {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .footer__contact {
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    max-width: 500px;
+    margin-inline: auto;
+    margin-bottom: 3rem;
+  }
+
+  .social-media {
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-bottom: unset;
+  }
+
+  .social-media__link {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+  .social-media__text {
+    display: block;
+  }
+
+  .footer__address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    row-gap: 1rem;
+    margin-bottom: unset;
+  }
+}
+
+@media (min-width: 48em) {
+  .nav__link {
+    position: relative;
+  }
+
+  .nav__icon {
+    position: absolute;
+    top: 1.5rem;
+    width: 100%;
+    opacity: 0;
+    z-index: -1000;
+    transition: opacity 0.5s;
+  }
+
+  .nav__link:hover .nav__icon {
+    color: var(--fontLightColor);
+    opacity: 1;
+  }
+
+  .nav__text {
+    display: block;
+  }
+
+  .section__text {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .address__link:not(:last-child) {
+    margin-bottom: unset;
+  }
+}

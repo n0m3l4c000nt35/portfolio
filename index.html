@@ -14,132 +14,142 @@
   <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/media-queries.css">
   <link rel="icon" href="favicon.ico">
 </head>
 
 <body id="home">
-  <header>
-    <nav>
-      <a href="#inicio">
-        <i data-lucide="house"></i>
-        <span>Inicio</span>
+  <header class="body__header">
+    <nav class="nav">
+      <a class="nav__link" href="#inicio" title="Inicio">
+        <i class="nav__icon" data-lucide="house"></i>
+        <span class="nav__text">Inicio</span>
       </a>
-      <a href="#sobre-mi">
-        <i data-lucide="circle-user"></i>
-        <span>Sobre Mi</span>
+      <a class="nav__link" href="#sobre-mi" title="Sobre Mi">
+        <i class="nav__icon" data-lucide="circle-user"></i>
+        <span class="nav__text">Sobre Mi</span>
       </a>
-      <a href="#estudios">
-        <i data-lucide="graduation-cap"></i>
-        <span>Estudios</span>
+      <a class="nav__link" href="#estudios" title="Estudios">
+        <i class="nav__icon" data-lucide="graduation-cap"></i>
+        <span class="nav__text">Estudios</span>
       </a>
-      <a href="#proyectos">
-        <i data-lucide="folder-open-dot"></i>
-        <span>Proyectos</span>
+      <a class="nav__link" href="#proyectos" title="Proyectos">
+        <i class="nav__icon" data-lucide="folder-open-dot"></i>
+        <span class="nav__text">Proyectos</span>
       </a>
-      <a href="#experiencia-laboral">
-        <i data-lucide="briefcase-business"></i>
-        <span>Experiencia Laboral</span>
+      <a class="nav__link" href="#experiencia-laboral" title="Experiencia Laboral">
+        <i class="nav__icon" data-lucide="briefcase-business"></i>
+        <span class="nav__text">Experiencia Laboral</span>
       </a>
-      <a href="#contacto">
-        <i data-lucide="contact"></i>
-        <span>Contacto</span>
+      <a class="nav__link" href="#contacto" title="Contacto">
+        <i class="nav__icon" data-lucide="contact"></i>
+        <span class="nav__text">Contacto</span>
       </a>
     </nav>
   </header>
   <main>
-    <section id="sobre-mi">
-      <h2>Sobre Mi</h2>
-      <p>Apasionado por el desarrollo y la ciberseguridad, los que me permiten satisfacer el constante deseo de
+    <section id="sobre-mi" class="body__section">
+      <h2 class="section__title">Sobre Mi</h2>
+      <p class="section__text">Apasionado por el desarrollo y la ciberseguridad, los que me permiten satisfacer el
+        constante deseo de
         aprendizaje, continuar desarrollando una mentalidad creativa y resolutiva, aspectos que destaco de mi persona y
-        disfruto seguir perfeccionando.</p>
+        disfruto seguir perfeccionando</p>
     </section>
-    <section id="estudios">
-      <h2>Estudios</h2>
-      <article>
-        <h3>Universidad de BYU-Idaho</h3>
-        <h4>Licenciatura en Desarrollo de Software</h4>
-        <time datetime="2023">2023</time>
-      </article>
-      <article>
-        <h3>Coderhouse</h3>
-        <h4>Desarrollador Full Stack - Stack MERN</h4>
-        <time datetime="2022">2022</time>
-      </article>
+    <section id="estudios" class="body__section section__article--mb">
+      <h2 class="section__title">Estudios</h2>
+      <div class="article__container">
+        <article>
+          <h3>Universidad de BYU-Idaho</h3>
+          <h4>Licenciatura en Desarrollo de Software</h4>
+          <time datetime="2023">2023</time>
+        </article>
+        <article>
+          <h3>Coderhouse</h3>
+          <h4>Desarrollador Full Stack - Stack MERN</h4>
+          <time datetime="2022">2022</time>
+        </article>
+      </div>
     </section>
-    <section id="proyectos">
-      <h2>Proyectos</h2>
-      <article>
-        <h3>Aplicación de Notas</h3>
-        <img src="" alt="">
-        <a href="https://github.com/n0m3l4c000nt35/app-notes" target="_blank" rel="noopener noreferrer">Repositorio</a>
-        <a href="https://n0t354pp.vercel.app/" target="_blank" rel="noopener noreferrer">Deploy</a>
-      </article>
+    <section id="proyectos" class="body__section">
+      <h2 class="section__title">Proyectos</h2>
+      <div class="article__container">
+        <article>
+          <h3>Aplicación de Notas</h3>
+          <img src="" alt="">
+          <a href="https://github.com/n0m3l4c000nt35/app-notes" target="_blank"
+            rel="noopener noreferrer">Repositorio</a>
+          <a href="https://n0t354pp.vercel.app/" target="_blank" rel="noopener noreferrer">Deploy</a>
+        </article>
+      </div>
     </section>
-    <section id="experiencia-laboral">
-      <h2>Experiencia Laboral</h2>
-      <article>
-        <h3>Ministerio de Educación de la Ciudad de Buenos Aires</h3>
-        <p>
-          <time datetime="2023-01">01-2023</time>
-          <time datetime="2023-04">04-2023</time>
-        </p>
-        <ul>
-          <li>Descripción</li>
-        </ul>
-      </article>
-      <article>
-        <h3>Obra Social del Personal de la Actividad del Turf - OSPAT</h3>
-        <p>
-          <time datetime="2019-05">05-2019</time>
-          <time datetime="2020-09">09-2021</time>
-        </p>
-        <ul>
-          <li>Descripción</li>
-        </ul>
-      </article>
-      <article>
-        <h3>Centro de Operaciones Municipal de Tres de Febrero - COM3F</h3>
-        <p>
-          <time datetime="2015-06">06-2015</time>
-          <time datetime="2018-12">12-2018</time>
-        </p>
-        <ul>
-          <li>Descripción</li>
-        </ul>
-      </article>
+    <section id="experiencia-laboral" class="body__section section__article--mb">
+      <h2 class="section__title">Experiencia Laboral</h2>
+      <div class="article__container">
+        <article>
+          <h3>Ministerio de Educación de la Ciudad de Buenos Aires</h3>
+          <p>
+            <time datetime="2023-01">01-2023</time>
+            <time datetime="2023-04">04-2023</time>
+          </p>
+          <ul>
+            <li>Descripción</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Obra Social del Personal de la Actividad del Turf - OSPAT</h3>
+          <p>
+            <time datetime="2019-05">05-2019</time>
+            <time datetime="2020-09">09-2021</time>
+          </p>
+          <ul>
+            <li>Descripción</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Centro de Operaciones Municipal de Tres de Febrero - COM3F</h3>
+          <p>
+            <time datetime="2015-06">06-2015</time>
+            <time datetime="2018-12">12-2018</time>
+          </p>
+          <ul>
+            <li>Descripción</li>
+          </ul>
+        </article>
+      </div>
     </section>
   </main>
-  <section id="contacto">
-    <h2>Contacto</h2>
+  <section id="contacto" class="body__section">
+    <h2 class="section__title">Contacto</h2>
   </section>
-  <footer>
-    <address>
-      <p>
-        <a href="mailto:estebanluiszarate1985@gmail.com" target="_blank" rel="noopener noreferrer">
-          estebanluiszarate1985@gmail.com
+  <footer class="body__footer">
+    <div class="footer__contact">
+      <address class="footer__address">
+        <a class="address__link" href="mailto:estebanluiszarate1985@gmail.com" target="_blank" rel="noopener noreferrer"
+          title="Enviar email">estebanluiszarate1985@gmail.com</a>
+        <a class="address__link" href="tel:+5491122771652" target="_blank" rel="noopener noreferrer" title="Llamar">+54
+          9 1122771652</a>
+        <a class="address__link" href="https://wa.me/+5491122771652" target="_blank" rel="noopener noreferrer"
+          title="Enviar whatsapp">Whatsapp</a>
+      </address>
+      <div class="social-media">
+        <a class="social-media__link" href="https://www.linkedin.com/in/esteban-zarate/" target="_blank"
+          rel="noopener noreferrer">
+          <i data-lucide="linkedin"></i>
+          <span class="social-media__text">LinkedIn</span>
         </a>
-      </p>
-      <p>
-        <a href="tel:+5491122771652" target="_blank" rel="noopener noreferrer">+54 9 1122771652</a>
-      </p>
-      <p>
-        <a href="https://wa.me/+5491122771652" target="_blank" rel="noopener noreferrer">Whatsapp</a>
-      </p>
-    </address>
-    <div id="redes">
-      <a href="https://www.linkedin.com/in/esteban-zarate/" target="_blank" rel="noopener noreferrer">
-        <i data-lucide="linkedin"></i>
-        LinkedIn
-      </a>
-      <a href="https://github.com/n0m3l4c000nt35" target="_blank" rel="noopener noreferrer">
-        <i data-lucide="github"></i>
-        Github
-      </a>
-      <a href="https://app.hackthebox.com/profile/1089152" target="_blank" rel="noopener noreferrer">
-        <i data-lucide="box"></i>
-        HackTheBox
-      </a>
+        <a class="social-media__link" href="https://github.com/n0m3l4c000nt35" target="_blank"
+          rel="noopener noreferrer">
+          <i data-lucide="github"></i>
+          <span class="social-media__text">Github</span>
+        </a>
+        <a class="social-media__link" href="https://app.hackthebox.com/profile/1089152" target="_blank"
+          rel="noopener noreferrer">
+          <i data-lucide="box"></i>
+          <span class="social-media__text">HackTheBox</span>
+        </a>
+      </div>
     </div>
+    <p class="footer__copyright">&copy; 2025 Esteban Zárate. Todos los derechos reservados.</p>
   </footer>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <!-- <script src="https://unpkg.com/lucide@latest"></script> -->

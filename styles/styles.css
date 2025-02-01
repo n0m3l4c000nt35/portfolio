@@ -1,9 +1,15 @@
 :root {
   /* --fontFamily: "Neucha", serif; */
-  --font-family: "Grandstander", serif;
-  --darkColor: #0a0a0a;
+  --fontFamily: "Grandstander", serif;
   --fontLightColor: #f4f4f4;
-  --titleSize: clamp(2.5rem, 5vw, 5rem);
+  --fontDarkColor: #0a0a0a;
+  --darkColor: #0a0a0a;
+  --hoverColor: #4a4a4a;
+  --focusColor: #4a4a4a;
+  --backgroundLightColor: #f4f4f4;
+  --sectionTitleFontSize: clamp(1.4rem, 5vw, 4rem);
+  --sectionTextFontSize: clamp(1rem, 2vw, 2rem);
+  --addressLinkFontSize: clamp(0.75rem, 2.5vw, 1.2rem);
 }
 
 * {
@@ -14,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
 }
 
 body {
@@ -52,4 +59,113 @@ a {
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.body__header {
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.75rem;
+}
+
+.nav__link {
+  display: flex;
+}
+
+.nav__link:hover {
+  color: var(--hoverColor);
+}
+
+.nav__link:focus {
+  outline: 2px solid var(--focusColor);
+  outline-offset: 0.25rem;
+  border-radius: 6px;
+}
+
+.nav__text {
+  display: none;
+}
+
+.body__section article {
+  padding-inline: 0.5rem;
+}
+
+.article__container {
+  max-width: 768px;
+  margin-inline: auto;
+}
+
+.section__article--mb article:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.section__title {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: var(--sectionTitleFontSize);
+  text-align: center;
+}
+
+.section__text {
+  padding-inline: 1rem;
+  font-size: var(--sectionTextFontSize);
+  line-height: clamp(1.4rem, 3vw, 2.5rem);
+  text-align: center;
+}
+
+.body__footer {
+  padding-inline: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.social-media__link {
+  display: flex;
+}
+
+.social-media__link:hover {
+  color: var(--hoverColor);
+}
+
+.social-media__link:focus {
+  outline: 2px solid var(--focusColor);
+  outline-offset: 0.25rem;
+  border-radius: 6px;
+}
+
+.social-media__text {
+  display: none;
+}
+
+.footer__address {
+  margin-bottom: 1rem;
+}
+
+.address__link {
+  display: block;
+  font-size: var(--addressLinkFontSize);
+}
+
+.address__link:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.address__link:hover {
+  color: var(--hoverColor);
+}
+
+.footer__copyright {
+  padding: 1rem;
+  background-color: var(--backgroundLightColor);
+  color: var(--fontDarkColor);
+  text-align: center;
 }
