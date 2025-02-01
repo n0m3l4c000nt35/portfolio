@@ -40,6 +40,20 @@
     margin-bottom: unset;
   }
 
+  .address__link {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+  .address__link:hover .address__icon {
+    color: var(--hoverColor);
+  }
+
+  .address__icon {
+    display: inline;
+  }
+
   .social-media__link:hover .social-media__icon {
     color: var(--hoverColor);
   }

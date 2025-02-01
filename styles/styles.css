@@ -155,6 +155,10 @@ a {
   font-size: var(--addressLinkFontSize);
 }
 
+.address__icon {
+  display: none;
+}
+
 .address__link:focus {
   outline: 2px solid var(--focusColor);
   outline-offset: 0.25rem;
