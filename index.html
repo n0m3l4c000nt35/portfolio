@@ -9,6 +9,7 @@
   <meta name="keywords"
     content="Esteban Zárate, Portfolio, Desarrollador Web, Programador, Diseñador Web, Ciberseguridad, Ethical Hacking">
   <title>Portfolio # Esteban Zárate</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
@@ -22,34 +23,35 @@
   <header class="body__header">
     <nav class="nav">
       <a class="nav__link" href="#inicio" title="Inicio">
-        <i class="nav__icon" data-lucide="house"></i>
+        <i class="bi bi-house nav__icon"></i>
         <span class="nav__text">Inicio</span>
       </a>
       <a class="nav__link" href="#sobre-mi" title="Sobre Mi">
-        <i class="nav__icon" data-lucide="circle-user"></i>
+        <i class="bi bi-person-circle nav__icon"></i>
         <span class="nav__text">Sobre Mi</span>
       </a>
       <a class="nav__link" href="#estudios" title="Estudios">
-        <i class="nav__icon" data-lucide="graduation-cap"></i>
+        <i class="bi bi-mortarboard nav__icon"></i>
         <span class="nav__text">Estudios</span>
       </a>
       <a class="nav__link" href="#proyectos" title="Proyectos">
-        <i class="nav__icon" data-lucide="folder-open-dot"></i>
+        <i class="bi bi-folder2-open nav__icon"></i>
         <span class="nav__text">Proyectos</span>
       </a>
       <a class="nav__link" href="#experiencia-laboral" title="Experiencia Laboral">
-        <i class="nav__icon" data-lucide="briefcase-business"></i>
+        <i class="bi bi-briefcase nav__icon"></i>
         <span class="nav__text">Experiencia Laboral</span>
       </a>
       <a class="nav__link" href="#contacto" title="Contacto">
-        <i class="nav__icon" data-lucide="contact"></i>
+        <i class="bi bi-person-lines-fill nav__icon"></i>
         <span class="nav__text">Contacto</span>
       </a>
     </nav>
   </header>
   <main>
     <section id="sobre-mi" class="body__section">
-      <h2 class="section__title">Sobre Mi</h2>
+      <h2 class="section__title-profile">Esteban Zárate</h2>
+      <h3 class="profile__title">Desarrollador</h3>
       <p class="section__text">Apasionado por el desarrollo y la ciberseguridad, los que me permiten satisfacer el
         constante deseo de
         aprendizaje, continuar desarrollando una mentalidad creativa y resolutiva, aspectos que destaco de mi persona y
@@ -58,62 +60,66 @@
     <section id="estudios" class="body__section section__article--mb">
       <h2 class="section__title">Estudios</h2>
       <div class="article__container">
-        <article>
-          <h3>Universidad de BYU-Idaho</h3>
+        <article class="section__article">
+          <h3 class="article__title">Universidad de BYU-Idaho</h3>
           <h4>Licenciatura en Desarrollo de Software</h4>
-          <time datetime="2023">2023</time>
+          <p>
+            <time datetime="2023">2023</time> - <time datetime="2025">presente</time>
+          </p>
         </article>
-        <article>
-          <h3>Coderhouse</h3>
+        <article class="section__article">
+          <h3 class="article__title">Coderhouse</h3>
           <h4>Desarrollador Full Stack - Stack MERN</h4>
-          <time datetime="2022">2022</time>
+          <time datetime="2022">2022</time> - <time datetime="2023">2023</time>
         </article>
       </div>
     </section>
     <section id="proyectos" class="body__section">
       <h2 class="section__title">Proyectos</h2>
       <div class="article__container">
-        <article>
-          <h3>Aplicación de Notas</h3>
-          <img src="" alt="">
-          <a href="https://github.com/n0m3l4c000nt35/app-notes" target="_blank"
-            rel="noopener noreferrer">Repositorio</a>
-          <a href="https://n0t354pp.vercel.app/" target="_blank" rel="noopener noreferrer">Deploy</a>
+        <article class="section__article section__article-project">
+          <h3 class="article__title">Aplicación de Notas</h3>
+          <img class="article__image" src="./images/notesapp.webp" alt="Notes App" width="1916" height="909">
+          <div class="article__links">
+            <a href="https://github.com/n0m3l4c000nt35/app-notes" target="_blank" rel="noopener noreferrer">
+              <button>Repositorio</button>
+            </a>
+            <a href="https://n0t354pp.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <button>Deploy</button>
+            </a>
+          </div>
         </article>
       </div>
     </section>
     <section id="experiencia-laboral" class="body__section section__article--mb">
       <h2 class="section__title">Experiencia Laboral</h2>
       <div class="article__container">
-        <article>
-          <h3>Ministerio de Educación de la Ciudad de Buenos Aires</h3>
+        <article class="section__article">
+          <h3 class="article__title">Ministerio de Educación de la Ciudad de Buenos Aires</h3>
           <p>
-            <time datetime="2023-01">01-2023</time>
-            <time datetime="2023-04">04-2023</time>
+            <time datetime="2023-01">01/2023</time> - <time datetime="2023-04">04/2023</time>
           </p>
-          <ul>
+          <ul class="article__ul">
             <li>Descripción</li>
           </ul>
         </article>
-        <article>
-          <h3>Obra Social del Personal de la Actividad del Turf - <abbr
+        <article class="section__article">
+          <h3 class="article__title">Obra Social del Personal de la Actividad del Turf - <abbr
               title="Obra Social del Personal de la Actividad del Turf">OSPAT</abbr></h3>
           <p>
-            <time datetime="2019-05">05-2019</time>
-            <time datetime="2020-09">09-2021</time>
+            <time datetime="2019-05">05/2019</time> - <time datetime="2020-09">09/2021</time>
           </p>
-          <ul>
+          <ul class="article__ul">
             <li>Descripción</li>
           </ul>
         </article>
-        <article>
-          <h3>Centro de Operaciones Municipal de Tres de Febrero - <abbr
+        <article class="section__article">
+          <h3 class="article__title">Centro de Operaciones Municipal de Tres de Febrero - <abbr
               title="Centro de Operaciones Municipal de Tres de Febrero">COM3F</abbr></h3>
           <p>
-            <time datetime="2015-06">06-2015</time>
-            <time datetime="2018-12">12-2018</time>
+            <time datetime="2015-06">06/2015</time> - <time datetime="2018-12">12/2018</time>
           </p>
-          <ul>
+          <ul class="article__ul">
             <li>Descripción</li>
           </ul>
         </article>
@@ -122,46 +128,47 @@
   </main>
   <section id="contacto" class="body__section">
     <h2 class="section__title">Contacto</h2>
+    <form action=""></form>
+    <p style="text-align: center;">Coming soon...</p>
   </section>
   <footer class="body__footer">
     <div class="footer__contact">
       <address class="footer__address">
         <a class="address__link" href="mailto:estebanluiszarate1985@gmail.com" target="_blank" rel="noopener noreferrer"
           title="Enviar email">
-          <i class="address__icon" data-lucide="mail"></i>
-          <span>estebanluiszarate1985@gmail.com</span>
+          <i class="bi bi-envelope address__icon"></i>
+          <span class="address__text">estebanluiszarate1985@gmail.com</span>
         </a>
         <a class="address__link" href="tel:+5491122771652" target="_blank" rel="noopener noreferrer" title="Llamar">
-          <i class="address__icon" data-lucide="phone"></i>
-          <span>+54 9 1122771652</span>
+          <i class="bi bi-telephone address__icon"></i>
+          <span class="address__text">+54 9 1122771652</span>
         </a>
         <a class="address__link" href="https://wa.me/+5491122771652" target="_blank" rel="noopener noreferrer"
           title="Enviar whatsapp">
-          <span>Whatsapp</span>
+          <i class="bi bi-whatsapp address__icon"></i>
+          <span class="address__text">Whatsapp</span>
         </a>
       </address>
       <div class="social-media">
         <a class="social-media__link" href="https://www.linkedin.com/in/esteban-zarate/" target="_blank"
-          rel="noopener noreferrer">
-          <i class="social-media__icon" data-lucide="linkedin"></i>
+          rel="noopener noreferrer" title="LinkedIn">
+          <i class="bi bi-linkedin social-media__icon"></i>
           <span class="social-media__text">LinkedIn</span>
         </a>
-        <a class="social-media__link" href="https://github.com/n0m3l4c000nt35" target="_blank"
-          rel="noopener noreferrer">
-          <i class="social-media__icon" data-lucide="github"></i>
+        <a class="social-media__link" href="https://github.com/n0m3l4c000nt35" target="_blank" rel="noopener noreferrer"
+          title="Github">
+          <i class="bi bi-github social-media__icon"></i>
           <span class="social-media__text">Github</span>
         </a>
         <a class="social-media__link" href="https://app.hackthebox.com/profile/1089152" target="_blank"
-          rel="noopener noreferrer">
-          <i class="social-media__icon" data-lucide="box"></i>
+          rel="noopener noreferrer" title="HackTheBox">
+          <i class="bi bi-box social-media__icon"></i>
           <span class="social-media__text">HackTheBox</span>
         </a>
       </div>
     </div>
-    <p class="footer__copyright">&copy; 2025 Esteban Zárate. Todos los derechos reservados.</p>
+    <p class="footer__copyright">&copy; <span id="copy-year"></span> Esteban Zárate. Todos los derechos reservados.</p>
   </footer>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
   <script src="./scripts/main.js" type="module"></script>
 </body>
 
