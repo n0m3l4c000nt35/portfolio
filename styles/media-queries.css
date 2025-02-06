@@ -9,7 +9,6 @@
   .footer__contact {
     display: flex;
     justify-content: center;
-    column-gap: 2rem;
     max-width: 500px;
     margin-inline: auto;
     margin-bottom: 3rem;
@@ -24,7 +23,7 @@
   .social-media__link {
     display: flex;
     align-items: center;
-    column-gap: 1rem;
+    column-gap: 0.5rem;
   }
 
   .social-media__text {
@@ -43,11 +42,19 @@
   .address__link {
     display: flex;
     align-items: center;
-    column-gap: 1rem;
+    column-gap: 0.5rem;
+  }
+
+  .address__link:not(:last-child) {
+    margin-bottom: unset;
   }
 
   .address__link:hover .address__icon {
     color: var(--hoverColor);
+  }
+
+  .address__link:hover .address__text {
+    color: var(--fontLightColor);
   }
 
   .address__icon {
@@ -61,6 +68,10 @@
   .social-media__link:hover .social-media__text {
     color: var(--fontLightColor);
   }
+
+  .social-media__text {
+    font-size: var(--addressLinkFontSize);
+  }
 }
 
 @media (min-width: 48em) {
@@ -70,11 +81,11 @@
 
   .nav__icon {
     position: absolute;
-    top: 1.5rem;
+    top: 1.75rem;
     width: 100%;
     opacity: 0;
     z-index: -1000;
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
   }
 
   .nav__link:hover .nav__icon {
@@ -84,6 +95,10 @@
 
   .nav__text {
     display: block;
+  }
+
+  .footer__contact {
+    column-gap: 2rem;
   }
 
   .section__text {
