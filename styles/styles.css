@@ -9,7 +9,7 @@
   --backgroundLightColor: #f4f4f4;
   --sectionTitleFontSize: clamp(1.5rem, 5vw, 4rem);
   --sectionTextFontSize: clamp(1rem, 2vw, 2rem);
-  --addressLinkFontSize: clamp(0.75rem, 2.5vw, 1.2rem);
+  --addressLinkFontSize: clamp(0.7rem, 2.5vw, 1.2rem);
 }
 
 * {
@@ -80,6 +80,32 @@ a {
   max-width: 768px;
   margin-inline: auto;
   padding-inline: 0.5rem;
+}
+
+.article__skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
+  gap: 1rem;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.article__skill .skills__icon {
+  display: block;
+  margin-inline: auto;
+  margin-bottom: 0.5rem;
+}
+
+.article__skill .article__title {
+  margin-bottom: unset;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.skills__icon {
+  width: 50px;
+  height: 50px;
+  fill: var(--fontLightColor);
 }
 
 .article__title {
@@ -228,7 +254,7 @@ a {
 
 .address__link:focus {
   outline: 2px solid var(--focusColor);
-  outline-offset: 0.3rem;
+  outline-offset: 0.4rem;
   border-radius: 6px;
 }
 
