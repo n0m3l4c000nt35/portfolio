@@ -9,6 +9,7 @@
   .footer__contact {
     display: flex;
     justify-content: center;
+    column-gap: 2rem;
     max-width: 500px;
     margin-inline: auto;
     margin-bottom: 3rem;
@@ -22,6 +23,7 @@
 
   .social-media__link {
     display: flex;
+    align-items: center;
     column-gap: 0.5rem;
   }
 
@@ -40,6 +42,7 @@
 
   .address__link {
     display: flex;
+    align-items: center;
     column-gap: 0.5rem;
   }
 
@@ -55,8 +58,13 @@
     color: var(--fontLightColor);
   }
 
+  .address__link:focus,
+  .social-media__link:focus {
+    outline-offset: 0.4rem;
+  }
+
   .address__icon {
-    display: inline;
+    display: flex;
   }
 
   .social-media__link:hover .social-media__icon {
