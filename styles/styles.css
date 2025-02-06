@@ -49,6 +49,10 @@ a {
   display: flex;
 }
 
+.nav__link i {
+  display: flex;
+}
+
 .nav__link:hover {
   color: var(--hoverColor);
 }

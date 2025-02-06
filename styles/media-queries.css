@@ -22,7 +22,6 @@
 
   .social-media__link {
     display: flex;
-    align-items: center;
     column-gap: 0.5rem;
   }
 
@@ -41,7 +40,6 @@
 
   .address__link {
     display: flex;
-    align-items: center;
     column-gap: 0.5rem;
   }
 
