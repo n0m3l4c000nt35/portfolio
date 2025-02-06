@@ -51,6 +51,7 @@ a {
 
 .nav__link i {
   display: flex;
+  justify-content: center;
 }
 
 .nav__link:hover {
