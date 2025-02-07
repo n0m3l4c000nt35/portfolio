@@ -127,6 +127,14 @@
     margin-inline: auto;
   }
 
+  .address__link {
+    align-items: unset;
+  }
+
+  .social-media__link {
+    align-items: unset;
+  }
+
   .address__link:not(:last-child) {
     margin-bottom: unset;
   }
