@@ -19,10 +19,10 @@
   <link rel="icon" href="favicon.ico">
 </head>
 
-<body id="home">
+<body>
   <header class="body__header">
     <nav class="nav">
-      <a class="nav__link" href="#inicio" title="Inicio">
+      <a id="inicio-link" class="nav__link" href="/" title="Inicio">
         <i class="bi bi-house nav__icon"></i>
         <span class="nav__text">Inicio</span>
       </a>
@@ -53,7 +53,10 @@
     </nav>
   </header>
   <main>
-    <section id="sobre-mi" class="body__section">
+    <section id="sobre-mi" class="body__section section__profile">
+      <div class="profile__container">
+        <img class="profile__image" src="./images/profile.webp" alt="Esteban Zárate Profile" width="500" height="500">
+      </div>
       <h2 class="section__title-profile">Esteban Zárate</h2>
       <h3 class="profile__title">Desarrollador</h3>
       <p class="section__text">Apasionado por el desarrollo y la ciberseguridad, los que me permiten satisfacer el
