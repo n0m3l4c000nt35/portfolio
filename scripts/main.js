@@ -41,10 +41,16 @@ class InfiniteCarousel {
     this.scrollTimeout = null;
     this.isTransitioning = false;
     this.slideWidth = this.container.offsetWidth;
+
+    this.modal = document.querySelector('.image-modal');
+    this.modalImage = this.modal.querySelector('.modal-image');
+
     this.setupProgressDots();
     this.setupClones();
     this.currentIndex = 1;
     this.setupEventListeners();
+    this.setupModalListeners();
+
     requestAnimationFrame(() => {
       this.updatePosition(false);
     });
@@ -104,6 +110,35 @@ class InfiniteCarousel {
     });
   }
 
+  setupModalListeners() {
+    this.slides.forEach(slide => {
+      slide.addEventListener('click', (e) => {
+        if (!this.isDragging && Math.abs(this.dragDistance || 0) < 5) {
+          const img = slide.querySelector('img');
+          this.modalImage.src = img.src;
+          this.modalImage.alt = img.alt;
+          this.modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    this.modal.querySelector('.modal-content').addEventListener('click', (e) => {
+      if (e.target === this.modal.querySelector('.modal-content')) {
+        this.closeModal();
+      }
+    });
+
+    this.modal.querySelector('.modal-close').addEventListener('click', () => {
+      this.closeModal();
+    });
+  }
+
+  closeModal() {
+    this.modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
   setupClones() {
     const firstClone = this.slides[0].cloneNode(true);
     const lastClone = this.slides[this.slides.length - 1].cloneNode(true);
@@ -139,6 +174,7 @@ class InfiniteCarousel {
     this.startPos = this.getPositionX(e);
     this.dragStartX = this.startPos;
     this.currentTranslate = -this.currentIndex * 100;
+    this.dragDistance = 0;
   }
 
   drag(e) {
@@ -156,14 +192,15 @@ class InfiniteCarousel {
   dragEnd() {
     if (!this.isDragging) return;
 
+    const wasDragged = Math.abs(this.dragDistance) > 5;
     this.isDragging = false;
     this.track.classList.remove('dragging');
 
-    const threshold = this.slideWidth * 0.2;
-    const movement = this.dragDistance;
+    if (!wasDragged) return;
 
-    if (Math.abs(movement) > threshold) {
-      if (movement > 0) {
+    const threshold = this.slideWidth * 0.2;
+    if (Math.abs(this.dragDistance) > threshold) {
+      if (this.dragDistance > 0) {
         this.prev();
       } else {
         this.next();
@@ -188,6 +225,21 @@ class InfiniteCarousel {
     this.updateProgress();
   }
 
+  handleTransitionEnd() {
+    if (this.currentIndex === 0 || this.currentIndex === this.slides.length - 1) {
+      this.track.style.transition = 'none';
+      if (this.currentIndex === 0) {
+        this.currentIndex = this.slides.length - 2;
+      } else {
+        this.currentIndex = 1;
+      }
+      this.updatePosition(false);
+      this.track.offsetHeight;
+      this.track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+    this.isTransitioning = false;
+  }
+
   goToSlide(index) {
     if (this.isTransitioning) return;
     this.isTransitioning = true;
@@ -208,24 +260,11 @@ class InfiniteCarousel {
     this.currentIndex++;
     this.updatePosition();
   }
-
-  handleTransitionEnd() {
-    this.isTransitioning = false;
-
-    if (this.currentIndex === 0) {
-      this.currentIndex = this.slides.length - 2;
-      this.updatePosition(false);
-    }
-    else if (this.currentIndex === this.slides.length - 1) {
-      this.currentIndex = 1;
-      this.updatePosition(false);
-    }
-  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateTitleOnScroll();
-  setYearCopyright();
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
+  updateTitleOnScroll();
+  setYearCopyright();
 });

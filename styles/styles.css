@@ -143,6 +143,8 @@ a {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: grab;
   will-change: transform;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .carousel-track.dragging {
@@ -174,7 +176,8 @@ a {
   height: auto;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  pointer-events: none;
+  user-drag: none;
+  -webkit-user-drag: none;
 }
 
 .carousel-button {
@@ -212,11 +215,11 @@ a {
   left: 50%;
   display: flex;
   gap: 0.5rem;
-  border: 1px solid var(--thirdColor);
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
-  background-color: #e9e9e91a;
-  padding: 4px;
+  background: rgba(128, 128, 128, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 8px 12px;
+  border-radius: 20px;
   z-index: 10;
   transform: translateX(-50%);
 }
@@ -224,16 +227,71 @@ a {
 .progress-dot {
   width: 8px;
   height: 8px;
-  border: 1px solid var(--darkColor);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  background: transparent;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .progress-dot.active {
   width: 24px;
-  background: var(--darkColor);
+  background: white;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.modal-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1002;
 }
 
 .article__skills {
