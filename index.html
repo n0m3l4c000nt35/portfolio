@@ -279,8 +279,34 @@
   </main>
   <section id="contacto" class="body__section">
     <h2 class="section__title">Contacto</h2>
-    <form action=""></form>
-    <p style="text-align: center;">Coming soon...</p>
+    <div class="form-container" role="main">
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <input type="text" class="form-control" id="name" name="name" placeholder=" " required minlength="2"
+            maxlength="50" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" aria-required="true" aria-describedby="nameError">
+          <label class="form-label" for="name">Nombre</label>
+          <span id="nameError" class="error-message" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <input type="email" class="form-control" id="email" name="email" placeholder=" " required maxlength="100"
+            pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-required="true" aria-describedby="emailError">
+          <label class="form-label" for="email">Email</label>
+          <span id="emailError" class="error-message" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control" id="message" name="message" placeholder=" " required minlength="10"
+            maxlength="500" aria-required="true" aria-describedby="messageError"></textarea>
+          <label class="form-label" for="message">Mensaje</label>
+          <span id="messageError" class="error-message" role="alert"></span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Enviar mensaje
+        </button>
+      </form>
+    </div>
   </section>
   <footer class="body__footer">
     <address class="footer__address">

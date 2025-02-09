@@ -10,6 +10,10 @@
     max-width: 600px;
     margin-inline: auto;
   }
+
+  .form-container {
+    margin-inline: auto;
+  }
 }
 
 @media (min-width: 48em) {

@@ -262,9 +262,142 @@ class InfiniteCarousel {
   }
 }
 
+class FormValidator {
+  constructor(formId) {
+    this.form = document.getElementById(formId);
+    this.submitButton = this.form.querySelector('button[type="submit"]');
+
+    this.validations = {
+      name: {
+        required: 'Por favor, ingresa tu nombre',
+        minLength: 'El nombre debe tener al menos 2 caracteres',
+        pattern: 'Por favor, ingresa un nombre válido (solo letras y espacios)',
+        validate: (value) => {
+          if (value.trim().length < 2) return 'El nombre debe tener al menos 2 caracteres';
+          if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) return 'Por favor, ingresa un nombre válido';
+          return '';
+        }
+      },
+      email: {
+        required: 'Por favor, ingresa tu email',
+        pattern: 'Por favor, ingresa un email válido',
+        validate: (value) => {
+          const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(value)) return 'Por favor, ingresa un email válido';
+          return '';
+        }
+      },
+      message: {
+        required: 'Por favor, ingresa tu mensaje',
+        minLength: 'El mensaje debe tener al menos 10 caracteres',
+        maxLength: 'El mensaje no debe exceder los 500 caracteres',
+        validate: (value) => {
+          if (value.trim().length < 10) return 'El mensaje debe tener al menos 10 caracteres';
+          if (value.length > 500) return 'El mensaje no debe exceder los 500 caracteres';
+          return '';
+        }
+      }
+    };
+
+    this.setupEventListeners();
+  }
+
+  setupEventListeners() {
+    this.form.querySelectorAll('.form-control').forEach(input => {
+      ['input', 'blur'].forEach(eventType => {
+        input.addEventListener(eventType, () => {
+          this.validateField(input);
+          this.updateSubmitButtonState();
+        });
+      });
+    });
+
+    this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+  }
+
+  validateField(field) {
+    const fieldName = field.name;
+    const value = field.value.trim();
+    const validation = this.validations[fieldName];
+    const errorElement = document.getElementById(`${fieldName}Error`);
+
+    field.classList.remove('error', 'success');
+    errorElement.textContent = '';
+    errorElement.classList.remove('visible');
+
+    if (!value && field.hasAttribute('required')) {
+      this.showError(field, errorElement, validation.required);
+      return false;
+    }
+
+    if (value && validation.validate) {
+      const errorMessage = validation.validate(value);
+      if (errorMessage) {
+        this.showError(field, errorElement, errorMessage);
+        return false;
+      }
+    }
+
+    field.classList.add('success');
+    return true;
+  }
+
+  showError(field, errorElement, message) {
+    field.classList.add('error');
+    errorElement.textContent = message;
+    errorElement.classList.add('visible');
+  }
+
+  updateSubmitButtonState() {
+    const isValid = Array.from(this.form.querySelectorAll('.form-control'))
+      .every(field => this.validateField(field));
+
+    this.submitButton.disabled = !isValid;
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault();
+
+    if (!this.isFormValid()) return;
+
+    this.submitButton.disabled = true;
+    this.submitButton.textContent = 'Enviando...';
+
+    try {
+      await this.simulateFormSubmission();
+
+      this.form.reset();
+      this.form.querySelectorAll('.form-control').forEach(input => {
+        input.classList.remove('success');
+      });
+
+    } catch (error) {
+      alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+    } finally {
+      this.submitButton.disabled = false;
+      this.submitButton.textContent = 'Enviar mensaje';
+    }
+  }
+
+  isFormValid() {
+    return Array.from(this.form.querySelectorAll('.form-control'))
+      .every(field => this.validateField(field));
+  }
+
+  simulateFormSubmission() {
+    return new Promise((resolve) => {
+      const formData = Object.fromEntries(new FormData(this.form));
+      console.log('Datos del formulario:', formData);
+      alert("Coming soon...");
+      setTimeout(resolve, 1000);
+    });
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
+  new FormValidator('contactForm');
   updateTitleOnScroll();
   setYearCopyright();
 });
