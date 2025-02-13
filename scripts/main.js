@@ -394,10 +394,18 @@ class FormValidator {
   }
 }
 
+function currentJob() {
+  const date = new Date();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  document.getElementById("current-job").textContent = `${month}/${year} (presente)`;;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
   new FormValidator('contactForm');
   updateTitleOnScroll();
   setYearCopyright();
+  currentJob();
 });
