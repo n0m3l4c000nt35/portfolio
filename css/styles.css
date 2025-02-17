@@ -82,7 +82,7 @@ a {
 .share-portfolio a:hover,
 .share-portfolio button:hover {
   color: var(--hoverColor);
-  transition: color 0.3s;
+  transition: color 0.25s;
 }
 
 .body__header {
@@ -443,6 +443,7 @@ a {
 
 .section__article:hover {
   border-color: var(--hoverColor);
+  transition: border-color 0.25s;
 }
 
 .section__article--mb article:not(:last-child) {
@@ -606,6 +607,7 @@ textarea.form-control {
 
 .address__link:hover {
   color: var(--hoverColor);
+  transition: color 0.25s;
 }
 
 .address__link:focus {
