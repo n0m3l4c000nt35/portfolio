@@ -266,6 +266,8 @@ class FormValidator {
   constructor(formId) {
     this.form = document.getElementById(formId);
     this.submitButton = this.form.querySelector('button[type="submit"]');
+    this.errorTimeouts = {};
+    this.validStates = {};
 
     this.validations = {
       name: {
@@ -299,16 +301,19 @@ class FormValidator {
       }
     };
 
+    this.form.querySelectorAll('.form-control').forEach(input => {
+      this.validStates[input.name] = false;
+    });
+
     this.setupEventListeners();
+    this.updateSubmitButtonState();
   }
 
   setupEventListeners() {
     this.form.querySelectorAll('.form-control').forEach(input => {
-      ['input', 'blur'].forEach(eventType => {
-        input.addEventListener(eventType, () => {
-          this.validateField(input);
-          this.updateSubmitButtonState();
-        });
+      input.addEventListener('blur', () => {
+        this.validateField(input);
+        this.updateSubmitButtonState();
       });
     });
 
@@ -322,43 +327,69 @@ class FormValidator {
     const errorElement = document.getElementById(`${fieldName}Error`);
 
     field.classList.remove('error', 'success');
-    errorElement.textContent = '';
-    errorElement.classList.remove('visible');
 
-    if (!value && field.hasAttribute('required')) {
-      this.showError(field, errorElement, validation.required);
-      return false;
+    if (this.errorTimeouts[fieldName]) {
+      clearTimeout(this.errorTimeouts[fieldName]);
+      delete this.errorTimeouts[fieldName];
     }
 
-    if (value && validation.validate) {
-      const errorMessage = validation.validate(value);
+    let isValid = true;
+    let errorMessage = '';
+
+    if (!value && field.hasAttribute('required')) {
+      isValid = false;
+      errorMessage = validation.required;
+    } else if (value && validation.validate) {
+      errorMessage = validation.validate(value);
       if (errorMessage) {
-        this.showError(field, errorElement, errorMessage);
-        return false;
+        isValid = false;
       }
     }
 
-    field.classList.add('success');
-    return true;
+    this.validStates[fieldName] = isValid;
+
+    if (isValid) {
+      field.classList.add('success');
+      errorElement.textContent = '';
+      errorElement.classList.remove('visible');
+    } else {
+      this.showError(field, errorElement, errorMessage);
+    }
+
+    return isValid;
   }
 
   showError(field, errorElement, message) {
     field.classList.add('error');
     errorElement.textContent = message;
     errorElement.classList.add('visible');
+
+    const fieldName = field.name;
+    this.errorTimeouts[fieldName] = setTimeout(() => {
+      errorElement.classList.remove('visible');
+
+      setTimeout(() => {
+        errorElement.textContent = '';
+        field.classList.remove('error');
+        if (this.validStates[fieldName]) {
+          field.classList.add('success');
+        }
+      }, 300);
+    }, 3000);
   }
 
   updateSubmitButtonState() {
-    const isValid = Array.from(this.form.querySelectorAll('.form-control'))
-      .every(field => this.validateField(field));
-
-    this.submitButton.disabled = !isValid;
+    const isFormValid = Object.values(this.validStates).every(isValid => isValid);
+    this.submitButton.disabled = !isFormValid;
   }
 
   async handleSubmit(e) {
     e.preventDefault();
 
-    if (!this.isFormValid()) return;
+    const allValid = Array.from(this.form.querySelectorAll('.form-control'))
+      .every(field => this.validateField(field));
+
+    if (!allValid) return;
 
     this.submitButton.disabled = true;
     this.submitButton.textContent = 'Enviando...';
@@ -366,10 +397,17 @@ class FormValidator {
     try {
       await this.simulateFormSubmission();
 
+      Object.keys(this.errorTimeouts).forEach(key => {
+        clearTimeout(this.errorTimeouts[key]);
+        delete this.errorTimeouts[key];
+      });
+
       this.form.reset();
       this.form.querySelectorAll('.form-control').forEach(input => {
-        input.classList.remove('success');
+        input.classList.remove('success', 'error');
+        this.validStates[input.name] = false;
       });
+      this.updateSubmitButtonState();
 
     } catch (error) {
       alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
@@ -377,11 +415,6 @@ class FormValidator {
       this.submitButton.disabled = false;
       this.submitButton.textContent = 'Enviar mensaje';
     }
-  }
-
-  isFormValid() {
-    return Array.from(this.form.querySelectorAll('.form-control'))
-      .every(field => this.validateField(field));
   }
 
   simulateFormSubmission() {
