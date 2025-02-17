@@ -25,6 +25,7 @@ html {
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   font-family: var(--fontFamily);
   background-color: var(--darkColor);
@@ -46,6 +47,42 @@ body::-webkit-scrollbar-thumb {
 a {
   color: var(--fontLightColor);
   text-decoration: none;
+}
+
+.share-portfolio {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid var(--fontLightColor);
+  border-bottom: 1px solid var(--fontLightColor);
+  border-left: 1px solid var(--fontLightColor);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.share-portfolio a,
+.share-portfolio button {
+  font-size: 1rem;
+}
+
+.share-portfolio button {
+  border: none;
+  background-color: transparent;
+  color: var(--fontLightColor);
+  cursor: pointer;
+}
+
+.share-portfolio a:hover,
+.share-portfolio button:hover {
+  color: var(--hoverColor);
+  transition: color 0.3s;
 }
 
 .body__header {

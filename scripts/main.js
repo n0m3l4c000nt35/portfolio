@@ -401,6 +401,11 @@ function currentJob() {
   document.getElementById("current-job").textContent = `${month}/${year} (presente)`;;
 }
 
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text)
+    .catch(err => console.error('Error al copiar: ', err));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
@@ -408,4 +413,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTitleOnScroll();
   setYearCopyright();
   currentJob();
+
+  document.querySelector("#share-link").addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));
 });
