@@ -62,7 +62,7 @@ a {
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   transform: translateY(-50%);
   z-index: 1000;
 }
