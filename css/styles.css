@@ -86,7 +86,7 @@ a {
 }
 
 .body__header {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -94,6 +94,14 @@ a {
   background: #0000006b;
   backdrop-filter: blur(10px);
   z-index: 1000;
+}
+
+.language-switcher {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 .nav {

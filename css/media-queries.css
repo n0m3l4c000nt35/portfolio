@@ -6,6 +6,10 @@
     font-size: var(--navLinkFontSize);
   }
 
+  .language-switcher {
+    padding: 2rem;
+  }
+
   .section__text {
     max-width: 600px;
     margin-inline: auto;
