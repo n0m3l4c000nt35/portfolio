@@ -1,0 +1,28 @@
+{
+  "es": {
+    "aboutme": {
+      "profileimage": "",
+      "fullname": "Esteban Zárate",
+      "title": "Pentester # Desarrollador",
+      "description": "Apasionado por el desarrollo y la ciberseguridad, los que me permiten satisfacer el constante deseo de aprendizaje, continuar desarrollando una mentalidad creativa y resolutiva, aspectos que destaco de mi persona y disfruto seguir perfeccionando"
+    },
+    "education": [],
+    "skills": [],
+    "projects": [],
+    "jobs": [],
+    "contact": {}
+  },
+  "en": {
+    "aboutme": {
+      "profileimage": "",
+      "fullname": "Esteban Zárate",
+      "title": "Pentester # Developer",
+      "description": ""
+    },
+    "education": [],
+    "skills": [],
+    "projects": [],
+    "jobs": [],
+    "contact": {}
+  }
+}
