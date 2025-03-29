@@ -439,13 +439,21 @@ function copyToClipboard(text) {
     .catch(err => console.error('Error al copiar: ', err));
 }
 
+class Language {
+  constructor() { }
+}
+
+class Portfolio {
+  constructor() { }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
   new FormValidator('contactForm');
+  new Language();
   updateTitleOnScroll();
   setYearCopyright();
   currentJob();
-
   document.querySelector("#share-link").addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));
 });
