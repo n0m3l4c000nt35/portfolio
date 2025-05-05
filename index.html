@@ -327,7 +327,7 @@
   <section id="contacto" class="body__section">
     <h2 class="section__title">Contacto</h2>
     <div class="form-container" role="main">
-      <form id="contactForm" novalidate>
+      <form id="contactForm" action="https://formspree.io/f/mkgrrvvn" method="POST">
         <div class="form-group">
           <input type="text" class="form-control" id="name" name="name" placeholder=" " required minlength="2"
             maxlength="50" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" aria-required="true" aria-describedby="nameError">
@@ -337,7 +337,7 @@
 
         <div class="form-group">
           <input type="email" class="form-control" id="email" name="email" placeholder=" " required maxlength="100"
-            pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-required="true" aria-describedby="emailError">
+            pattern="[a-z0-9._+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" aria-required="true" aria-describedby="emailError">
           <label class="form-label" for="email">Email</label>
           <span id="emailError" class="error-message" role="alert"></span>
         </div>
@@ -349,7 +349,7 @@
           <span id="messageError" class="error-message" role="alert"></span>
         </div>
 
-        <button type="submit" class="submit-btn" id="submitBtn" disabled>
+        <button type="submit" class="submit-btn" id="submitBtn">
           Enviar mensaje
         </button>
       </form>
@@ -369,7 +369,7 @@
         rel="noopener noreferrer" title="Perfil de HackTheBox">
         <i class="bi bi-box address__icon"></i>
       </a>
-      <a class="address__link" href="mailto:estebanluiszarate1985@gmail.com" target="_blank" rel="noopener noreferrer"
+      <a class="address__link" href="mailto:estebanzarateok@gmail.com" target="_blank" rel="noopener noreferrer"
         title="Enviar email">
         <i class="bi bi-envelope address__icon"></i>
       </a>

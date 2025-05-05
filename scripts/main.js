@@ -450,7 +450,7 @@ class Portfolio {
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
-  new FormValidator('contactForm');
+  // new FormValidator('contactForm');
   new Language();
   updateTitleOnScroll();
   setYearCopyright();
