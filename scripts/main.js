@@ -427,33 +427,147 @@ class FormValidator {
   }
 }
 
-function currentJob() {
-  const date = new Date();
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const year = date.getFullYear();
-  document.getElementById("current-job").textContent = `${month}/${year} (presente)`;;
-}
-
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text)
     .catch(err => console.error('Error al copiar: ', err));
 }
 
 class Language {
-  constructor() { }
-}
+  constructor() {
+    this.currentLanguage = localStorage.getItem("portfolio-language") || "en";
+    this.dataPath = "./data/data.json";
+    this.init();
+  }
 
-class Portfolio {
-  constructor() { }
+  async init() {
+    try {
+      const data = await this.fetchLanguageData();
+      this.languageData = data;
+      this.updateLanguage(this.currentLanguage);
+      this.setupLanguageSwitcher();
+    } catch (error) {
+      console.error("Error al cargar los datos de idioma:", error);
+    }
+  }
+
+  async fetchLanguageData() {
+    const response = await fetch(this.dataPath);
+    if (!response.ok) {
+      throw new Error(`Error al cargar el archivo JSON: ${response.statusText}`);
+    }
+    return response.json();
+  }
+
+  updateLanguage(language) {
+    const texts = this.languageData[language];
+    if (!texts) return;
+
+    const languageSwitcher = document.querySelector(".language");
+    if (languageSwitcher) {
+      languageSwitcher.textContent = language === "en" ? "ES" : "EN";
+    }
+
+    const aboutMe = texts.aboutme;
+    if (aboutMe) {
+      document.querySelector(".section__title-profile").textContent = aboutMe.fullname;
+      document.querySelector(".profile__title").textContent = aboutMe.title;
+      document.querySelector(".section__text").textContent = aboutMe.description;
+    }
+
+    const education = texts.education;
+    if (education) {
+      const educationContainer = document.querySelector("#estudios .article__container");
+      if (educationContainer) {
+        educationContainer.innerHTML = "";
+        education.forEach(item => {
+          const article = document.createElement("article");
+          article.classList.add("section__article");
+          article.innerHTML = `
+                    <h3 class="article__title">${item.institution}</h3>
+                    <h4>${item.title}</h4>
+                    <p>
+                        <time datetime="${item.dateBegin}">${item.dateBegin}</time>
+                        ${item.dateEnd ? `- <time datetime="${item.dateEnd}">${item.dateEnd}</time>` : ""}
+                    </p>
+                `;
+          educationContainer.appendChild(article);
+        });
+      }
+    }
+
+    const jobs = texts.jobs;
+    if (jobs) {
+      const jobsContainer = document.querySelector("#experiencia-laboral .article__container");
+      if (jobsContainer) {
+        jobsContainer.innerHTML = "";
+        jobs.forEach(job => {
+          const article = document.createElement("article");
+          article.classList.add("section__article");
+          article.innerHTML = `
+                    <h3 class="article__title">${job.place}</h3>
+                    <h4 class="experience-title">${job.title}</h4>
+                    <p
+                        <time datetime="${job.dateBegin}">${job.dateBegin}</time>
+                        ${job.dateEnd ? `- <time datetime="${job.dateEnd}">${job.dateEnd}</time>` : ""}
+                    </p>
+                    <ul class="article__ul">
+                        ${job.description && job.description.length > 0
+              ? job.description.map(desc => `<li>${desc}</li>`).join("")
+              : ""}
+                    </ul>
+                `;
+          jobsContainer.appendChild(article);
+        });
+      }
+    }
+
+    const navbarLinks = [
+      { id: "inicio-link", href: "./index.html", key: "home", icon: "house" },
+      { href: "#sobre-mi", key: "aboutme", icon: "person-circle" },
+      { href: "#estudios", key: "education", icon: "mortarboard" },
+      { href: "#skills", key: "skills", icon: "tools" },
+      { href: "#proyectos", key: "projects", icon: "folder2-open" },
+      { href: "#experiencia-laboral", key: "jobs", icon: "briefcase" },
+      { href: "#contacto", key: "contact", icon: "person-lines-fill" },
+    ];
+
+    const navContainer = document.querySelector(".nav");
+    navContainer.innerHTML = "";
+
+    navbarLinks.forEach(link => {
+      const a = document.createElement("a");
+      a.className = "nav__link";
+      a.href = link.href;
+      a.title = texts.navbar[link.key];
+      if (link.id) a.id = link.id;
+
+      a.innerHTML = `
+            <i class="bi bi-${link.icon} nav__icon"></i>
+            <span class="nav__text">${texts.navbar[link.key]}</span>
+        `;
+      navContainer.appendChild(a);
+    });
+
+    localStorage.setItem("language", language);
+  }
+
+  setupLanguageSwitcher() {
+    const languageSwitcher = document.querySelector(".language");
+    if (!languageSwitcher) return;
+
+    languageSwitcher.addEventListener("click", () => {
+      this.currentLanguage = this.currentLanguage === "en" ? "es" : "en";
+      this.updateLanguage(this.currentLanguage);
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  new Language();
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
   // new FormValidator('contactForm');
-  new Language();
   updateTitleOnScroll();
   setYearCopyright();
-  currentJob();
   document.querySelector("#share-link").addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));
 });

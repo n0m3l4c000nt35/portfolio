@@ -44,6 +44,17 @@ body::-webkit-scrollbar-thumb {
   background: var(--backgroundLightColor);
 }
 
+.language {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
+.language:hover {
+  cursor: pointer;
+}
+
 a {
   color: var(--fontLightColor);
   text-decoration: none;
@@ -477,6 +488,10 @@ a {
   font-size: var(--sectionTextFontSize);
   line-height: clamp(1.4rem, 3vw, 2.5rem);
   text-align: center;
+}
+
+.experience-title {
+  margin-bottom: 0.25rem;
 }
 
 .form-container {

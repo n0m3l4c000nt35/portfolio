@@ -1,28 +1,148 @@
 {
   "es": {
+    "navbar": {
+      "home": "Inicio",
+      "aboutme": "Sobre mi",
+      "education": "Educación",
+      "skills": "Habilidades",
+      "projects": "Proyectos",
+      "jobs": "Experiencia",
+      "contact": "Contacto"
+    },
     "aboutme": {
-      "profileimage": "",
       "fullname": "Esteban Zárate",
       "title": "Pentester # Desarrollador",
       "description": "Apasionado por el desarrollo y la ciberseguridad, los que me permiten satisfacer el constante deseo de aprendizaje, continuar desarrollando una mentalidad creativa y resolutiva, aspectos que destaco de mi persona y disfruto seguir perfeccionando"
     },
-    "education": [],
-    "skills": [],
-    "projects": [],
-    "jobs": [],
+    "education": [
+      {
+        "title": "Licenciatura en desarrollo de software",
+        "institution": "Brigham Young University-Idaho",
+        "dateBegin": "2023",
+        "dateEnd": "Actualidad"
+      },
+      {
+        "title": "Licenciatura en Ciencias Aplicadas Tecnología de la Información",
+        "institution": "Ensign College",
+        "dateBegin": "2024",
+        "dateEnd": "Actualidad"
+      },
+      {
+        "title": "Introducción a Linux | Personalización de Linux | Introducción al hacking | Python ofensivo",
+        "institution": "Hack4u",
+        "dateBegin": "2023",
+        "dateEnd": "2023"
+      },
+      {
+        "title": "Desarrollador Full Stack - Stack MERN",
+        "institution": "Coderhouse",
+        "dateBegin": "2022",
+        "dateEnd": "2023"
+      }
+    ],
+    "jobs": [
+      {
+        "place": "Haxor Ventures",
+        "title": "Pentester",
+        "dateBegin": "Febrero 2023",
+        "dateEnd": "Actualidad",
+        "description": []
+      },
+      {
+        "place": "Ministerio de Educación de la Ciudad de Buenos Aires",
+        "title": "Analista de datos",
+        "dateBegin": "Enero 2023",
+        "dateEnd": "Abril 2023",
+        "description": []
+      },
+      {
+        "place": "Obra Social del Personal de la Actividad del Turf - OSPAT",
+        "title": "Administrativo contable",
+        "dateBegin": "Mayo 2019",
+        "dateEnd": "Septiembre 2021",
+        "description": []
+      },
+      {
+        "place": "Centro de Operaciones Municipal de Tres de Febrero - COM3F",
+        "title": "Data entry - Operador de monitoreo",
+        "dateBegin": "Junio 2015",
+        "dateEnd": "Diciembre 2018",
+        "description": []
+      }
+    ],
     "contact": {}
   },
   "en": {
+    "navbar": {
+      "home": "Home",
+      "aboutme": "About me",
+      "education": "Education",
+      "skills": "Skills",
+      "projects": "Projects",
+      "jobs": "Experience",
+      "contact": "Contact"
+    },
     "aboutme": {
-      "profileimage": "",
       "fullname": "Esteban Zárate",
       "title": "Pentester # Developer",
-      "description": ""
+      "description": "I possess a strong passion for cybersecurity and software development, which enables me to satisfy my continual pursuit of knowledge. This commitment fosters my creative and analytical problem-solving abilities, which I value highly and endeavor to refine consistently."
     },
-    "education": [],
-    "skills": [],
-    "projects": [],
-    "jobs": [],
+    "education": [
+      {
+        "title": "Bachelor of Applied Science Software Development",
+        "institution": "Brigham Young University-Idaho",
+        "dateBegin": "2023",
+        "dateEnd": "Present"
+      },
+      {
+        "title": "Bachelor of Applied Science Information Technology",
+        "institution": "Ensign College",
+        "dateBegin": "2024",
+        "dateEnd": "Present"
+      },
+      {
+        "title": "Introduction to Linux | Linux Customization | Introduction to Hacking | Offensive Python",
+        "institution": "Hack4u",
+        "dateBegin": "2023",
+        "dateEnd": "2023"
+      },
+      {
+        "title": "Full Stack Developer - MERN Stack",
+        "institution": "Coderhouse",
+        "dateBegin": "2022",
+        "dateEnd": "2023"
+      }
+    ],
+    "jobs": [
+      {
+        "place": "Haxor Ventures",
+        "title": "Pentester",
+        "dateBegin": "February 2023",
+        "dateEnd": "Present",
+        "description": []
+      },
+      {
+        "place": "Ministry of Education of Buenos Aires City",
+        "title": "Data Analyst",
+        "dateBegin": "January 2023",
+        "dateEnd": "April 2023",
+        "description": []
+      },
+      {
+        "place": "Social Security of the Turf Activity Personnel - OSPAT",
+        "title": "Accounting Administrative",
+        "dateBegin": "May 2019",
+        "dateEnd": "September 2021",
+        "description": []
+      },
+      {
+        "place": "Municipal Operations Center of Tres de Febrero - COM3F",
+        "title": "Data Entry - Monitoring Operator",
+        "dateBegin": "June 2015",
+        "dateEnd": "December 2018",
+        "description": []
+      }
+    ],
     "contact": {}
   }
 }
