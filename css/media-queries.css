@@ -18,6 +18,13 @@
   .form-container {
     margin-inline: auto;
   }
+
+  .contactForm-status {
+    font-size: 1.2rem;
+    color: var(--fontLightColor);
+    text-align: center;
+    margin-top: 1rem;
+  }
 }
 
 @media (min-width: 48em) {

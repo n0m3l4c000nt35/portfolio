@@ -401,8 +401,11 @@ class FormValidator {
     this.submitButton.disabled = true;
     this.submitButton.textContent = 'Enviando...';
 
+    const status = document.getElementById(`${this.form.id}-status`);
+    if (status) status.textContent = '';
     try {
-      await this.simulateFormSubmission();
+      // await this.simulateFormSubmission();
+      await this.sendFormspree();
 
       Object.keys(this.errorTimeouts).forEach(key => {
         clearTimeout(this.errorTimeouts[key]);
@@ -416,21 +419,56 @@ class FormValidator {
       });
       this.updateSubmitButtonState();
 
+      if (status) {
+        status.textContent = "¡Gracias por tu mensaje!";
+        status.classList.add('contactForm-status');
+        setTimeout(() => {
+          status.textContent = "";
+          status.classList.remove('contactForm-status');
+        }, 4000);
+      }
     } catch (error) {
-      alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
-    } finally {
+      // alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+      if (status) status.textContent = "Hubo un error al enviar el formulario. Por favor, intenta nuevamente.";
       this.submitButton.disabled = false;
+    } finally {
       this.submitButton.textContent = 'Enviar mensaje';
     }
   }
 
-  simulateFormSubmission() {
-    return new Promise((resolve) => {
-      const formData = Object.fromEntries(new FormData(this.form));
-      console.log('Datos del formulario:', formData);
-      alert("Coming soon...");
-      setTimeout(resolve, 1000);
+  // simulateFormSubmission() {
+  //   return new Promise((resolve) => {
+  //     const formData = Object.fromEntries(new FormData(this.form));
+  //     console.log('Datos del formulario:', formData);
+  //     alert("Coming soon...");
+  //     setTimeout(resolve, 1000);
+  //   });
+  // }
+
+  async sendFormspree() {
+    const data = new FormData(this.form);
+    const response = await fetch(this.form.action, {
+      method: this.form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
     });
+
+    if (!response.ok) {
+      const status = document.getElementById(`${this.form.id}-status`);
+      try {
+        const result = await response.json();
+        if (result.errors && status) {
+          status.textContent = result.errors.map(error => error.message).join(", ");
+        } else if (status) {
+          status.textContent = "Oops! Hubo un problema al enviar el formulario";
+        }
+      } catch {
+        if (status) status.textContent = "Oops! Hubo un problema al enviar el formulario";
+      }
+      throw new Error('Formspree error');
+    }
   }
 }
 
