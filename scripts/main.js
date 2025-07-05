@@ -307,11 +307,16 @@ class FormValidator {
 
     this.setupEventListeners();
     this.updateSubmitButtonState();
+    this.submitButton.disabled = true;
   }
 
   setupEventListeners() {
     this.form.querySelectorAll('.form-control').forEach(input => {
       input.addEventListener('blur', () => {
+        this.validateField(input);
+        this.updateSubmitButtonState();
+      });
+      input.addEventListener('input', () => {
         this.validateField(input);
         this.updateSubmitButtonState();
       });
@@ -385,6 +390,8 @@ class FormValidator {
 
   async handleSubmit(e) {
     e.preventDefault();
+
+    if (this.submitButton.disabled) return;
 
     const allValid = Array.from(this.form.querySelectorAll('.form-control'))
       .every(field => this.validateField(field));
@@ -466,6 +473,21 @@ class Language {
     if (languageSwitcher) {
       languageSwitcher.textContent = language === "en" ? "ES" : "EN";
     }
+
+    const sectionTitles = [
+      { selector: '#inicio-link', key: 'home' },
+      { selector: '#sobre-mi .section__title', key: 'aboutme' },
+      { selector: '#estudios .section__title', key: 'education' },
+      { selector: '#skills .section__title', key: 'skills' },
+      { selector: '#proyectos .section__title', key: 'projects' },
+      { selector: '#experiencia-laboral .section__title', key: 'jobs' },
+      { selector: '#contacto .section__title', key: 'contact' }
+    ];
+
+    sectionTitles.forEach(item => {
+      const el = document.querySelector(item.selector);
+      if (el) el.textContent = texts.navbar[item.key];
+    });
 
     const aboutMe = texts.aboutme;
     if (aboutMe) {
@@ -566,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new Language();
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
-  // new FormValidator('contactForm');
+  new FormValidator('contactForm');
   updateTitleOnScroll();
   setYearCopyright();
   document.querySelector("#share-link").addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));

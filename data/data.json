@@ -42,6 +42,13 @@
     ],
     "jobs": [
       {
+        "place": "Autónomo",
+        "title": "Desarrollador",
+        "dateBegin": "Junio 2025",
+        "dateEnd": "Actualidad",
+        "description": []
+      },
+      {
         "place": "Ministerio de Educación de la Ciudad de Buenos Aires",
         "title": "Analista de datos",
         "dateBegin": "Enero 2023",
@@ -107,6 +114,13 @@
       }
     ],
     "jobs": [
+      {
+        "place": "Freelancer",
+        "title": "Developer",
+        "dateBegin": "June 2025",
+        "dateEnd": "Present",
+        "description": []
+      },
       {
         "place": "Ministry of Education of Buenos Aires City",
         "title": "Data Analyst",
