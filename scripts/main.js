@@ -631,3 +631,17 @@ document.addEventListener('DOMContentLoaded', () => {
   setYearCopyright();
   document.querySelector("#share-link").addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));
 });
+
+window.addEventListener('scroll', function () {
+  const language = document.querySelector('.language');
+  const scrollY = window.scrollY || window.pageYOffset;
+  const windowHeight = window.innerHeight;
+  const bodyHeight = document.body.offsetHeight;
+
+  // Si el usuario está a menos de 100px del fondo, pon 5rem, si no, pon 1rem
+  if (windowHeight + scrollY >= bodyHeight - 100) {
+    language.style.bottom = '5rem';
+  } else {
+    language.style.bottom = '1rem';
+  }
+});
