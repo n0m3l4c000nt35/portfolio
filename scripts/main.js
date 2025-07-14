@@ -479,7 +479,7 @@ function copyToClipboard(text) {
 
 class Language {
   constructor() {
-    this.currentLanguage = localStorage.getItem("portfolio-language") || "en";
+    this.currentLanguage = localStorage.getItem("portfolio-language") || "es";
     this.dataPath = "./data/data.json";
     this.init();
   }
