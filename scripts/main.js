@@ -584,10 +584,10 @@ class Language {
     const navbarLinks = [
       { id: "inicio-link", href: "./index.html", key: "home", icon: "house" },
       { href: "#sobre-mi", key: "aboutme", icon: "person-circle" },
+      { href: "#experiencia-laboral", key: "jobs", icon: "briefcase" },
       { href: "#estudios", key: "education", icon: "mortarboard" },
       { href: "#skills", key: "skills", icon: "tools" },
       { href: "#proyectos", key: "projects", icon: "folder2-open" },
-      { href: "#experiencia-laboral", key: "jobs", icon: "briefcase" },
       { href: "#contacto", key: "contact", icon: "person-lines-fill" },
     ];
 

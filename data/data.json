@@ -46,7 +46,14 @@
         "title": "Desarrollador",
         "dateBegin": "Junio 2025",
         "dateEnd": "Actualidad",
-        "description": []
+        "description": [
+          "Desarrollo de aplicaciones web full stack con ASP.NET, Razor Pages, C#, Entity Framework",
+          "Diseño de bases de datos relacionales y lógica de negocio eficiente y mantenible",
+          "Implementación de funcionalidades CRUD avanzadas, validaciones, autenticación y autorización de usuarios",
+          "Aplicación de buenas prácticas de seguridad informática en el ciclo completo de desarrollo (OWASP, hardening, control de acceso)",
+          "Comunicación directa con clientes, detección de necesidades, y entrega de soluciones a medida",
+          "Gestión del ciclo completo de proyectos: desde el relevamiento hasta el soporte post-producción"
+        ]
       },
       {
         "place": "Ministerio de Educación de la Ciudad de Buenos Aires",
@@ -119,7 +126,14 @@
         "title": "Developer",
         "dateBegin": "June 2025",
         "dateEnd": "Present",
-        "description": []
+        "description": [
+          "Full stack web application development with ASP.NET, Razor Pages, C#, Entity Framework",
+          "Design of relational databases and efficient, maintainable business logic",
+          "Implementation of advanced CRUD functionalities, validations, user authentication and authorization",
+          "Application of cybersecurity best practices throughout the development lifecycle (OWASP, hardening, access control)",
+          "Direct communication with clients, needs assessment, and delivery of tailored solutions",
+          "Management of the complete project lifecycle: from requirements gathering to post-production support"
+        ]
       },
       {
         "place": "Ministry of Education of Buenos Aires City",

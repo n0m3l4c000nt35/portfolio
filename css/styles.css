@@ -430,7 +430,16 @@ a {
 }
 
 .article__ul {
-  list-style: none;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.article__ul li {
+  font-size: 0.75rem;
+}
+
+.article__ul li:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 .section__article {
