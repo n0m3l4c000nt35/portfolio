@@ -638,7 +638,6 @@ window.addEventListener('scroll', function () {
   const windowHeight = window.innerHeight;
   const bodyHeight = document.body.offsetHeight;
 
-  // Si el usuario está a menos de 100px del fondo, pon 5rem, si no, pon 1rem
   if (windowHeight + scrollY >= bodyHeight - 100) {
     language.style.bottom = '5rem';
   } else {
