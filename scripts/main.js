@@ -485,7 +485,7 @@ function copyToClipboard(text) {
 
 class Language {
   constructor() {
-    this.currentLanguage = localStorage.getItem("portfolio-language") || "es";
+    this.currentLanguage = localStorage.getItem("portfolioez-language") || "es";
     this.dataPath = "./data/data.json";
     this.languageData = null;
     this.formValidator = null;
@@ -623,7 +623,7 @@ class Language {
       this.formValidator.setValidationTexts(texts.contactForm);
     }
 
-    localStorage.setItem("language", language);
+    localStorage.setItem("portfolioez-language", language);
   }
 
   updateContactForm(formTexts) {
