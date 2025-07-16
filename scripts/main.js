@@ -649,12 +649,33 @@ class Language {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  new Language();
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
   updateTitleOnScroll();
   setYearCopyright();
-  document.querySelector("#share-link").addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));
+
+  const sobreMiSection = document.getElementById('sobre-mi');
+  if (sobreMiSection) {
+    fetch('./partials/sobre-mi.html')
+      .then(res => res.text())
+      .then(html => {
+        sobreMiSection.innerHTML = html;
+      });
+  }
+
+  const aside = document.getElementById('share-portfolio');
+  if (aside) {
+    fetch('./partials/share-portfolio.html')
+      .then(res => res.text())
+      .then(html => {
+        aside.innerHTML = html;
+        const shareBtn = aside.querySelector("#share-link");
+        if (shareBtn) {
+          shareBtn.addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));
+        }
+      });
+  }
+  new Language();
 });
 
 window.addEventListener('scroll', function () {
