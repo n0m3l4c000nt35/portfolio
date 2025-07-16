@@ -354,8 +354,9 @@ a {
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: white;
-  border: none;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -366,6 +367,11 @@ a {
   justify-content: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 1002;
+  transition: border-color 0.3s ease;
+}
+
+.modal-close:hover {
+  border-color: var(--hoverColor);
 }
 
 .article__skills {
@@ -445,6 +451,20 @@ a {
 
 .section__article {
   border: 1px solid var(--fontLightColor);
+}
+
+.section__article--link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.section__article--education,
+.section__article--job,
+.section__article-project {
   padding: 1rem;
 }
 

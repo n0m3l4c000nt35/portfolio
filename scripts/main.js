@@ -518,7 +518,7 @@ class Language {
 
     const languageSwitcher = document.querySelector(".language");
     if (languageSwitcher) {
-      languageSwitcher.textContent = language === "en" ? "ES" : "EN";
+      languageSwitcher.textContent = language === "en" ? "es" : "en";
     }
 
     const sectionTitles = [
@@ -550,7 +550,7 @@ class Language {
         educationContainer.innerHTML = "";
         education.forEach(item => {
           const article = document.createElement("article");
-          article.classList.add("section__article");
+          article.classList.add("section__article", "section__article--education");
           article.innerHTML = `
                     <h3 class="article__title">${item.institution}</h3>
                     <h4>${item.title}</h4>
@@ -571,7 +571,7 @@ class Language {
         jobsContainer.innerHTML = "";
         jobs.forEach(job => {
           const article = document.createElement("article");
-          article.classList.add("section__article");
+          article.classList.add("section__article", "section__article--job");
           article.innerHTML = `
                     <h3 class="article__title">${job.place}</h3>
                     <h4 class="experience-title">${job.title}</h4>
