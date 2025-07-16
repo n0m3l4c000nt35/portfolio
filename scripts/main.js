@@ -263,11 +263,12 @@ class InfiniteCarousel {
 }
 
 class FormValidator {
-  constructor(formId) {
+  constructor(formId, validationTexts) {
     this.form = document.getElementById(formId);
     this.submitButton = this.form.querySelector('button[type="submit"]');
     this.errorTimeouts = {};
     this.validStates = {};
+    this.setValidationTexts(validationTexts);
 
     this.validations = {
       name: {
@@ -308,6 +309,21 @@ class FormValidator {
     this.setupEventListeners();
     this.updateSubmitButtonState();
     this.submitButton.disabled = true;
+  }
+
+  setValidationTexts(validationTexts) {
+    this.validations = validationTexts.validations;
+    Object.keys(this.validations).forEach(key => {
+      const v = this.validations[key];
+      if (typeof v.validate === 'string') {
+        v.validate = eval(`(${v.validate})`);
+      }
+    });
+    this.successMessage = validationTexts.successMessage;
+    this.errorMessage = validationTexts.errorMessage;
+    if (this.submitButton) {
+      this.submitButton.textContent = validationTexts.button;
+    }
   }
 
   setupEventListeners() {
@@ -358,6 +374,7 @@ class FormValidator {
       errorElement.textContent = '';
       errorElement.classList.remove('visible');
     } else {
+      field.classList.remove('success');
       this.showError(field, errorElement, errorMessage);
     }
 
@@ -399,12 +416,11 @@ class FormValidator {
     if (!allValid) return;
 
     this.submitButton.disabled = true;
-    this.submitButton.textContent = 'Enviando...';
+    this.submitButton.textContent = this.validations.sending || 'Enviando...';
 
     const status = document.getElementById(`${this.form.id}-status`);
     if (status) status.textContent = '';
     try {
-      // await this.simulateFormSubmission();
       await this.sendFormspree();
 
       Object.keys(this.errorTimeouts).forEach(key => {
@@ -420,7 +436,7 @@ class FormValidator {
       this.updateSubmitButtonState();
 
       if (status) {
-        status.textContent = "¡Gracias por tu mensaje!";
+        status.textContent = this.successMessage || "¡Gracias por tu mensaje!";
         status.classList.add('contactForm-status');
         setTimeout(() => {
           status.textContent = "";
@@ -428,22 +444,12 @@ class FormValidator {
         }, 4000);
       }
     } catch (error) {
-      // alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
-      if (status) status.textContent = "Hubo un error al enviar el formulario. Por favor, intenta nuevamente.";
+      if (status) status.textContent = this.errorMessage || "Hubo un error al enviar el formulario. Por favor, intenta nuevamente.";
       this.submitButton.disabled = false;
     } finally {
-      this.submitButton.textContent = 'Enviar mensaje';
+      this.submitButton.textContent = this.validations.button || 'Enviar mensaje';
     }
   }
-
-  // simulateFormSubmission() {
-  //   return new Promise((resolve) => {
-  //     const formData = Object.fromEntries(new FormData(this.form));
-  //     console.log('Datos del formulario:', formData);
-  //     alert("Coming soon...");
-  //     setTimeout(resolve, 1000);
-  //   });
-  // }
 
   async sendFormspree() {
     const data = new FormData(this.form);
@@ -481,6 +487,8 @@ class Language {
   constructor() {
     this.currentLanguage = localStorage.getItem("portfolio-language") || "es";
     this.dataPath = "./data/data.json";
+    this.languageData = null;
+    this.formValidator = null;
     this.init();
   }
 
@@ -490,6 +498,7 @@ class Language {
       this.languageData = data;
       this.updateLanguage(this.currentLanguage);
       this.setupLanguageSwitcher();
+      this.formValidator = new FormValidator('contactForm', this.languageData[this.currentLanguage].contactForm);
     } catch (error) {
       console.error("Error al cargar los datos de idioma:", error);
     }
@@ -608,7 +617,24 @@ class Language {
       navContainer.appendChild(a);
     });
 
+    this.updateContactForm(texts.contactForm);
+
+    if (this.formValidator) {
+      this.formValidator.setValidationTexts(texts.contactForm);
+    }
+
     localStorage.setItem("language", language);
+  }
+
+  updateContactForm(formTexts) {
+    document.querySelector('label[for="name"]').textContent = formTexts.labels.name;
+    document.querySelector('label[for="email"]').textContent = formTexts.labels.email;
+    document.querySelector('label[for="message"]').textContent = formTexts.labels.message;
+    document.getElementById('submitBtn').textContent = formTexts.button;
+    document.getElementById('name').placeholder = formTexts.placeholders.name;
+    document.getElementById('email').placeholder = formTexts.placeholders.email;
+    document.getElementById('message').placeholder = formTexts.placeholders.message;
+    document.querySelector('#contacto .section__title').textContent = formTexts.title;
   }
 
   setupLanguageSwitcher() {
@@ -622,11 +648,10 @@ class Language {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   new Language();
   const container = document.querySelector('.carousel-container');
   new InfiniteCarousel(container);
-  new FormValidator('contactForm');
   updateTitleOnScroll();
   setYearCopyright();
   document.querySelector("#share-link").addEventListener("click", () => copyToClipboard('https://n0m3l4c000nt35.github.io/portfolio/'));

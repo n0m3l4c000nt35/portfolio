@@ -77,7 +77,43 @@
         "description": []
       }
     ],
-    "contact": {}
+    "contactForm": {
+      "title": "Contacto",
+      "labels": {
+        "name": "Nombre",
+        "email": "Email",
+        "message": "Mensaje"
+      },
+      "placeholders": {
+        "name": "",
+        "email": "",
+        "message": ""
+      },
+      "button": "Enviar mensaje",
+      "successMessage": "¡Gracias por tu mensaje!",
+      "errorMessage": "Hubo un error al enviar el formulario. Por favor, intenta nuevamente.",
+      "validations": {
+        "name": {
+          "required": "Por favor, ingresa tu nombre",
+          "minLength": "El nombre debe tener al menos 2 caracteres",
+          "pattern": "Por favor, ingresa un nombre válido (solo letras y espacios)",
+          "validate": "function(value) { if (value.trim().length < 2) return 'El nombre debe tener al menos 2 caracteres'; if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$/.test(value)) return 'Por favor, ingresa un nombre válido'; return ''; }"
+        },
+        "email": {
+          "required": "Por favor, ingresa tu email",
+          "pattern": "Por favor, ingresa un email válido",
+          "validate": "function(value) { const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/; if (!emailRegex.test(value)) return 'Por favor, ingresa un email válido'; return ''; }"
+        },
+        "message": {
+          "required": "Por favor, ingresa tu mensaje",
+          "minLength": "El mensaje debe tener al menos 10 caracteres",
+          "maxLength": "El mensaje no debe exceder los 500 caracteres",
+          "validate": "function(value) { if (value.trim().length < 10) return 'El mensaje debe tener al menos 10 caracteres'; if (value.length > 500) return 'El mensaje no debe exceder los 500 caracteres'; return ''; }"
+        },
+        "sending": "Enviando...",
+        "button": "Enviar mensaje"
+      }
+    }
   },
   "en": {
     "navbar": {
@@ -157,6 +193,42 @@
         "description": []
       }
     ],
-    "contact": {}
+    "contactForm": {
+      "title": "Contact",
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "",
+        "email": "",
+        "message": ""
+      },
+      "button": "Send message",
+      "successMessage": "Thank you for your message!",
+      "errorMessage": "There was an error sending the form. Please try again.",
+      "validations": {
+        "name": {
+          "required": "Please enter your name",
+          "minLength": "Name must be at least 2 characters",
+          "pattern": "Please enter a valid name (letters and spaces only)",
+          "validate": "function(value) { if (value.trim().length < 2) return 'Name must be at least 2 characters'; if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$/.test(value)) return 'Please enter a valid name'; return ''; }"
+        },
+        "email": {
+          "required": "Please enter your email",
+          "pattern": "Please enter a valid email",
+          "validate": "function(value) { const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/; if (!emailRegex.test(value)) return 'Please enter a valid email'; return ''; }"
+        },
+        "message": {
+          "required": "Please enter your message",
+          "minLength": "Message must be at least 10 characters",
+          "maxLength": "Message must not exceed 500 characters",
+          "validate": "function(value) { if (value.trim().length < 10) return 'Message must be at least 10 characters'; if (value.length > 500) return 'Message must not exceed 500 characters'; return ''; }"
+        },
+        "sending": "Sending...",
+        "button": "Send message"
+      }
+    }
   }
 }
